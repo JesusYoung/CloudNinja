@@ -1,0 +1,28 @@
+server:
+  port: 7900
+
+
+spring:
+#  profiles:
+#    active: @profileActive@
+
+  application:
+    name: eureka-server
+
+
+
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    # 心跳检测频率
+    lease-renewal-interval-in-seconds: 30
+    # 无响应剔除周期
+    lease-expiration-duration-in-seconds: 90
+
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka/
