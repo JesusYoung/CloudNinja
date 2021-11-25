@@ -21,6 +21,12 @@ spring:
             - Path=/oauth/**
           filters:
             - StripPrefix=1
+        - id: monitor-server
+          uri: lb://monitor-server
+          predicates:
+            - Path=/monitor/**
+          filters:
+            - StripPrefix=1
 
 
 

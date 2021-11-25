@@ -21,6 +21,7 @@
         <module>api-gateway</module>
         <module>oauth-server</module>
         <module>base-server</module>
+        <module>monitor-server</module>
     </modules>
 
     <properties>
