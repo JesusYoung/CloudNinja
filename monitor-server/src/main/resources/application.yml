@@ -14,6 +14,7 @@ eureka:
     service-url:
       defaultZone: http://localhost:7900/eureka/
 
+# a方法
 management:
   endpoints:
     web:
@@ -23,3 +24,7 @@ management:
     tags:
       application: ${spring.application.name}
 
+# b方法，测试不生效
+#endpoints:
+#  prometheus:
+#    sensitive: false

@@ -41,5 +41,18 @@
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
+
+<!--        &lt;!&ndash; spring1.x需要此包 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.micrometer</groupId>-->
+<!--            <artifactId>micrometer-spring-legacy</artifactId>-->
+<!--        </dependency>-->
+
+        <!-- 暂不知 -->
+<!--        <dependency>-->
+<!--            <groupId>io.github.mweirauch</groupId>-->
+<!--            <artifactId>micrometer-jvm-extras</artifactId>-->
+<!--            <version>0.1.2</version>-->
+<!--        </dependency>-->
     </dependencies>
 </project>

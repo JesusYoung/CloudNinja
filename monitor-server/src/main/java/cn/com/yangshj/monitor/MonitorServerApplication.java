@@ -7,7 +7,11 @@ import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCusto
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+@Controller
 @EnableEurekaClient
 @SpringBootApplication
 public class MonitorServerApplication {
@@ -21,5 +25,11 @@ public class MonitorServerApplication {
     MeterRegistryCustomizer<MeterRegistry> configurer(
             @Value("${spring.application.name}") String applicationName) {
                 return (registry) -> registry.config().commonTags("application", applicationName);
+    }
+
+
+    @RequestMapping(value = "/hello")
+    public @ResponseBody String hello() {
+        return "hello world";
     }
 }
