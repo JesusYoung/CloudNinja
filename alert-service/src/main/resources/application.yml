@@ -1,0 +1,22 @@
+server:
+  port: 7600
+
+spring:
+  profiles:
+    active: @profileActive@
+
+  application:
+    name: alert-server
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://localhost:3306/alert_service?useUnicode=true&characterEncoding=utf-8&useSSL=false&useInformationSchema=true&remarks=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: nideyingzi
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7900/eureka/
