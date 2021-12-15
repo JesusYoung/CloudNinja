@@ -2,11 +2,17 @@ server:
   port: 8100
 
 spring:
-  profiles:
-    active: @profileActive@
-
+#  profiles:
+#    active: @profileActive@
   application:
     name: monitor-server
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://localhost:3306/ninja_monitor?useUnicode=true&characterEncoding=utf-8&useSSL=false&useInformationSchema=true&remarks=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: nideyingzi
+    driver-class-name: com.mysql.jdbc.Driver
 
 
 eureka:
@@ -28,3 +34,7 @@ management:
 #endpoints:
 #  prometheus:
 #    sensitive: false
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.com.yangshj.monitor.test
