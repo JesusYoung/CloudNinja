@@ -16,6 +16,7 @@
         <option value="$PROJECT_DIR$/oauth-server/pom.xml" />
         <option value="$PROJECT_DIR$/base-server/pom.xml" />
         <option value="$PROJECT_DIR$/monitor-server/pom.xml" />
+        <option value="$PROJECT_DIR$/alert-service/pom.xml" />
       </list>
     </option>
   </component>

@@ -7,16 +7,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="oauth-server" />
         <module name="eureka-server" />
-        <module name="base-server" />
         <module name="api-gateway" />
+        <module name="alert-service" />
+        <module name="base-server" />
+        <module name="oauth-server" />
         <module name="monitor-server" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="alert-service" options="-parameters" />
       <module name="api-gateway" options="-parameters" />
       <module name="base-server" options="-parameters" />
       <module name="eureka-server" options="-parameters" />

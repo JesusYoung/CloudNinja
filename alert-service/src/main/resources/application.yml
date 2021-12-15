@@ -1,0 +1,15 @@
+server:
+  port: 7600
+
+spring:
+  profiles:
+    active: @profileActive@
+
+  application:
+    name: alert-server
+
+
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:7900/eureka/

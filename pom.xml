@@ -22,6 +22,7 @@
         <module>oauth-server</module>
         <module>base-server</module>
         <module>monitor-server</module>
+        <module>alert-service</module>
     </modules>
 
     <properties>
