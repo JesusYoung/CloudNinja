@@ -8,5 +8,6 @@
     <file url="file://$PROJECT_DIR$/eureka-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/monitor-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/oauth-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workflow-server" charset="UTF-8" />
   </component>
 </project>

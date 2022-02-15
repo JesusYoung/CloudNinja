@@ -1,0 +1,25 @@
+server:
+  port: 8100
+
+spring:
+#  profiles:
+#    active: dev
+  application:
+    name: workflow-server
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://localhost:3306/ninja_activiti?useUnicode=true&characterEncoding=utf-8&useSSL=false&useInformationSchema=true&remarks=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: nideyingzi
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  activiti:
+    history-level: full
+    db-history-used: true
+    check-process-definitions: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7900/eureka/
+

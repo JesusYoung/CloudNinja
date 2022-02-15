@@ -17,6 +17,7 @@
         <option value="$PROJECT_DIR$/base-server/pom.xml" />
         <option value="$PROJECT_DIR$/monitor-server/pom.xml" />
         <option value="$PROJECT_DIR$/alert-service/pom.xml" />
+        <option value="$PROJECT_DIR$/workflow-server/pom.xml" />
       </list>
     </option>
   </component>
