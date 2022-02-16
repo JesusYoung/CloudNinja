@@ -27,6 +27,12 @@ spring:
             - Path=/monitor/**
           filters:
             - StripPrefix=1
+        - id: workflow-server
+          uri: lb://workflow-server
+          predicates:
+            - Path=/workflow/**
+          filters:
+            - StripPrefix=1
 
 
 
