@@ -20,16 +20,16 @@ public class MonitorServerApplication {
         SpringApplication.run(MonitorServerApplication.class, args);
     }
 
-    // prometheus + grafana + springboot2监控集成配置
-    @Bean
-    MeterRegistryCustomizer<MeterRegistry> configurer(
-            @Value("${spring.application.name}") String applicationName) {
-                return (registry) -> registry.config().commonTags("application", applicationName);
-    }
-
-
-    @RequestMapping(value = "/hello")
-    public @ResponseBody String hello() {
-        return "hello world";
-    }
+//    // prometheus + grafana + springboot2监控集成配置
+//    @Bean
+//    MeterRegistryCustomizer<MeterRegistry> configurer(
+//            @Value("${spring.application.name}") String applicationName) {
+//                return (registry) -> registry.config().commonTags("application", applicationName);
+//    }
+//
+//
+//    @RequestMapping(value = "/hello")
+//    public @ResponseBody String hello() {
+//        return "hello world";
+//    }
 }
