@@ -1,0 +1,440 @@
+<wsdl:definitions xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://impl.user.dev.bsm.mocha.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="UserServiceDevImpl" targetNamespace="http://impl.user.dev.bsm.mocha.com/">
+    <wsdl:types>
+        <xsd:schema xmlns:ns0="http://obj.dev.bsm.mocha.com" xmlns:tns="http://impl.user.dev.bsm.mocha.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.user.dev.bsm.mocha.com/">
+            <xsd:import namespace="http://obj.dev.bsm.mocha.com"/>
+            <xsd:complexType name="ArrayOfString">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="string2stringMap">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="key" type="xsd:string"/>
+                                <xsd:element minOccurs="0" name="value" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="string2anyTypeMap">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="entry">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="key" type="xsd:string"/>
+                                <xsd:element minOccurs="0" name="value" type="xsd:anyType"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="addUser" type="tns:addUser"/>
+            <xsd:complexType name="addUser">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="userObj" type="ns0:ArrayOfUserObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="addUserResponse" type="tns:addUserResponse"/>
+            <xsd:complexType name="addUserResponse">
+                <xsd:sequence/>
+            </xsd:complexType>
+            <xsd:element name="deleteUser" type="tns:deleteUser"/>
+            <xsd:complexType name="deleteUser">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="userId" type="tns:ArrayOfString"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="deleteUserResponse" type="tns:deleteUserResponse"/>
+            <xsd:complexType name="deleteUserResponse">
+                <xsd:sequence/>
+            </xsd:complexType>
+            <xsd:element name="verifyToken" type="tns:verifyToken"/>
+            <xsd:complexType name="verifyToken">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="verifyTokenResponse" type="tns:verifyTokenResponse"/>
+            <xsd:complexType name="verifyTokenResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="return" type="ns0:LoginResultObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="loginOut" type="tns:loginOut"/>
+            <xsd:complexType name="loginOut">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="loginOutResponse" type="tns:loginOutResponse"/>
+            <xsd:complexType name="loginOutResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="verifyUserByMobile" type="tns:verifyUserByMobile"/>
+            <xsd:complexType name="verifyUserByMobile">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="appType" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="loginStr" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="password" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="imei" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="phoneNumber" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="verifyUserByMobileResponse" type="tns:verifyUserByMobileResponse"/>
+            <xsd:complexType name="verifyUserByMobileResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="return" type="ns0:LoginResultObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getUserPage" type="tns:getUserPage"/>
+            <xsd:complexType name="getUserPage">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getUserPageResponse" type="tns:getUserPageResponse"/>
+            <xsd:complexType name="getUserPageResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="return" nillable="true" type="tns:string2anyTypeMap"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getItomConfig" type="tns:getItomConfig"/>
+            <xsd:complexType name="getItomConfig">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getItomConfigResponse" type="tns:getItomConfigResponse"/>
+            <xsd:complexType name="getItomConfigResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="return" nillable="true" type="tns:string2stringMap"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="verifyUser" type="tns:verifyUser"/>
+            <xsd:complexType name="verifyUser">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="appType" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="loginStr" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="password" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="verifyUserResponse" type="tns:verifyUserResponse"/>
+            <xsd:complexType name="verifyUserResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="return" type="ns0:LoginResultObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getWorkGroupByLoginName" type="tns:getWorkGroupByLoginName"/>
+            <xsd:complexType name="getWorkGroupByLoginName">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="arg0" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getWorkGroupByLoginNameResponse" type="tns:getWorkGroupByLoginNameResponse"/>
+            <xsd:complexType name="getWorkGroupByLoginNameResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="return" type="ns0:ArrayOfWorkGroupObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="verifyUserByRSA" type="tns:verifyUserByRSA"/>
+            <xsd:complexType name="verifyUserByRSA">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="appType" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="loginStr" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="password" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="verifyUserByRSAResponse" type="tns:verifyUserByRSAResponse"/>
+            <xsd:complexType name="verifyUserByRSAResponse">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="return" type="ns0:LoginResultObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="updateUser" type="tns:updateUser"/>
+            <xsd:complexType name="updateUser">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="userObj" type="ns0:ArrayOfUserObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="updateUserResponse" type="tns:updateUserResponse"/>
+            <xsd:complexType name="updateUserResponse">
+                <xsd:sequence/>
+            </xsd:complexType>
+        </xsd:schema>
+        <xsd:schema xmlns:tns="http://obj.dev.bsm.mocha.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://obj.dev.bsm.mocha.com">
+            <xsd:complexType name="LoginResultObj">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="loginDate" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfUserObj">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="UserObj" nillable="true" type="tns:UserObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="WorkGroupObj">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="workGroupDesc" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="workGroupDomainId" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="workGroupId" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="workGroupName" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="UserObj">
+                <xsd:sequence>
+                    <xsd:element minOccurs="0" name="ID" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="accessTime" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="address" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="email" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="endTime" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="isAccess" type="xsd:int"/>
+                    <xsd:element minOccurs="0" name="isDay" type="xsd:int"/>
+                    <xsd:element minOccurs="0" name="isSys" type="xsd:int"/>
+                    <xsd:element minOccurs="0" name="isVip" type="xsd:int"/>
+                    <xsd:element minOccurs="0" name="language" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="loginName" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="mobile" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="number" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="orgId" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="password" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="sex" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="startTime" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="telphone" nillable="true" type="xsd:string"/>
+                    <xsd:element minOccurs="0" name="type" type="xsd:int"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ArrayOfWorkGroupObj">
+                <xsd:sequence>
+                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="WorkGroupObj" nillable="true" type="tns:WorkGroupObj"/>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="getItomConfig">
+        <wsdl:part element="tns:getItomConfig" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addUser">
+        <wsdl:part element="tns:addUser" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyUserByMobile">
+        <wsdl:part element="tns:verifyUserByMobile" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUserPage">
+        <wsdl:part element="tns:getUserPage" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyUser">
+        <wsdl:part element="tns:verifyUser" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyUserByRSAResponse">
+        <wsdl:part element="tns:verifyUserByRSAResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="addUserResponse">
+        <wsdl:part element="tns:addUserResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyUserResponse">
+        <wsdl:part element="tns:verifyUserResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="loginOut">
+        <wsdl:part element="tns:loginOut" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyUserByMobileResponse">
+        <wsdl:part element="tns:verifyUserByMobileResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="deleteUser">
+        <wsdl:part element="tns:deleteUser" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="loginOutResponse">
+        <wsdl:part element="tns:loginOutResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getUserPageResponse">
+        <wsdl:part element="tns:getUserPageResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateUser">
+        <wsdl:part element="tns:updateUser" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyTokenResponse">
+        <wsdl:part element="tns:verifyTokenResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="updateUserResponse">
+        <wsdl:part element="tns:updateUserResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getWorkGroupByLoginNameResponse">
+        <wsdl:part element="tns:getWorkGroupByLoginNameResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="deleteUserResponse">
+        <wsdl:part element="tns:deleteUserResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getWorkGroupByLoginName">
+        <wsdl:part element="tns:getWorkGroupByLoginName" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyToken">
+        <wsdl:part element="tns:verifyToken" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="getItomConfigResponse">
+        <wsdl:part element="tns:getItomConfigResponse" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="verifyUserByRSA">
+        <wsdl:part element="tns:verifyUserByRSA" name="parameters"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="UserServiceDevImplPortType">
+        <wsdl:operation name="addUser">
+            <wsdl:input message="tns:addUser" name="addUser"> </wsdl:input>
+            <wsdl:output message="tns:addUserResponse" name="addUserResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteUser">
+            <wsdl:input message="tns:deleteUser" name="deleteUser"> </wsdl:input>
+            <wsdl:output message="tns:deleteUserResponse" name="deleteUserResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyToken">
+            <wsdl:input message="tns:verifyToken" name="verifyToken"> </wsdl:input>
+            <wsdl:output message="tns:verifyTokenResponse" name="verifyTokenResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="loginOut">
+            <wsdl:input message="tns:loginOut" name="loginOut"> </wsdl:input>
+            <wsdl:output message="tns:loginOutResponse" name="loginOutResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyUserByMobile">
+            <wsdl:input message="tns:verifyUserByMobile" name="verifyUserByMobile"> </wsdl:input>
+            <wsdl:output message="tns:verifyUserByMobileResponse" name="verifyUserByMobileResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUserPage">
+            <wsdl:input message="tns:getUserPage" name="getUserPage"> </wsdl:input>
+            <wsdl:output message="tns:getUserPageResponse" name="getUserPageResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getItomConfig">
+            <wsdl:input message="tns:getItomConfig" name="getItomConfig"> </wsdl:input>
+            <wsdl:output message="tns:getItomConfigResponse" name="getItomConfigResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyUser">
+            <wsdl:input message="tns:verifyUser" name="verifyUser"> </wsdl:input>
+            <wsdl:output message="tns:verifyUserResponse" name="verifyUserResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getWorkGroupByLoginName">
+            <wsdl:input message="tns:getWorkGroupByLoginName" name="getWorkGroupByLoginName"> </wsdl:input>
+            <wsdl:output message="tns:getWorkGroupByLoginNameResponse" name="getWorkGroupByLoginNameResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyUserByRSA">
+            <wsdl:input message="tns:verifyUserByRSA" name="verifyUserByRSA"> </wsdl:input>
+            <wsdl:output message="tns:verifyUserByRSAResponse" name="verifyUserByRSAResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateUser">
+            <wsdl:input message="tns:updateUser" name="updateUser"> </wsdl:input>
+            <wsdl:output message="tns:updateUserResponse" name="updateUserResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="UserServiceDevImplSoapBinding" type="tns:UserServiceDevImplPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="addUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="addUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="addUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="deleteUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="deleteUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyToken">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="verifyToken">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="verifyTokenResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="loginOut">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="loginOut">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="loginOutResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyUserByMobile">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="verifyUserByMobile">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="verifyUserByMobileResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getUserPage">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getUserPage">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getUserPageResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getItomConfig">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getItomConfig">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getItomConfigResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="verifyUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="verifyUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getWorkGroupByLoginName">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="getWorkGroupByLoginName">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="getWorkGroupByLoginNameResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="verifyUserByRSA">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="verifyUserByRSA">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="verifyUserByRSAResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateUser">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="updateUser">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="updateUserResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="UserServiceDevImpl">
+        <wsdl:port binding="tns:UserServiceDevImplSoapBinding" name="UserServiceDevImplPort">
+            <soap:address location="http://172.30.251.75/pureportal/webservices/user"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

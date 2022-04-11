@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="MetricDataServiceDevImpl" targetNamespace="http://impl.metricdata.dev.bsm.mocha.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://impl.metricdata.dev.bsm.mocha.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.metricdata.dev.bsm.mocha.com/" xmlns:ns0="http://obj.dev.bsm.mocha.com" xmlns:ns1="http://metricdata.dev.bsm.mocha.com" xmlns:ns2="http://obj.basedata.bsm.mocha.com" xmlns:tns="http://impl.metricdata.dev.bsm.mocha.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:import namespace="http://obj.dev.bsm.mocha.com"/>
+<xsd:import namespace="http://metricdata.dev.bsm.mocha.com"/>
+<xsd:import namespace="http://obj.basedata.bsm.mocha.com"/>
+<xsd:complexType name="ArrayOfString">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="queryRealTimeMetricDataBatch" type="tns:queryRealTimeMetricDataBatch"/>
+<xsd:complexType name="queryRealTimeMetricDataBatch">
+<xsd:sequence>
+<xsd:element name="resourceInsIds" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="metricIds" nillable="true" type="tns:ArrayOfString"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="queryRealTimeMetricDataBatchResponse" type="tns:queryRealTimeMetricDataBatchResponse"/>
+<xsd:complexType name="queryRealTimeMetricDataBatchResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfSimpleMetricData"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getSummaryFrequency" type="tns:getSummaryFrequency"/>
+<xsd:complexType name="getSummaryFrequency">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="getSummaryFrequencyResponse" type="tns:getSummaryFrequencyResponse"/>
+<xsd:complexType name="getSummaryFrequencyResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns1:SummaryFrequency"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="querySummaryMetricDataBatch" type="tns:querySummaryMetricDataBatch"/>
+<xsd:complexType name="querySummaryMetricDataBatch">
+<xsd:sequence>
+<xsd:element name="resourceInsIds" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="metricIds" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="frequencyId" nillable="true" type="xsd:string"/>
+<xsd:element name="startDate" type="xsd:long"/>
+<xsd:element name="endDate" type="xsd:long"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="querySummaryMetricDataBatchResponse" type="tns:querySummaryMetricDataBatchResponse"/>
+<xsd:complexType name="querySummaryMetricDataBatchResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns2:ArrayOfSummarizedMetricData"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="querySummaryMetricData" type="tns:querySummaryMetricData"/>
+<xsd:complexType name="querySummaryMetricData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="resourceInsId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="frequencyId" nillable="true" type="xsd:string"/>
+<xsd:element name="startDate" type="xsd:long"/>
+<xsd:element name="endDate" type="xsd:long"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="querySummaryMetricDataResponse" type="tns:querySummaryMetricDataResponse"/>
+<xsd:complexType name="querySummaryMetricDataResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns2:ArrayOfSummarizedMetricData"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="queryRealTimeMetricData" type="tns:queryRealTimeMetricData"/>
+<xsd:complexType name="queryRealTimeMetricData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="resourceInsId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="queryRealTimeMetricDataResponse" type="tns:queryRealTimeMetricDataResponse"/>
+<xsd:complexType name="queryRealTimeMetricDataResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:SimpleMetricData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://metricdata.dev.bsm.mocha.com" xmlns:tns="http://metricdata.dev.bsm.mocha.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:complexType name="SummaryFrequency">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="monitor" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="oneDay" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="oneHour" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="sixHours" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="tenMins" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="thirtyMins" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://obj.dev.bsm.mocha.com" xmlns:tns="http://obj.dev.bsm.mocha.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:complexType name="SimpleMetricData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricUnit" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="time" type="xsd:long"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfSimpleMetricData">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="SimpleMetricData" nillable="true" type="tns:SimpleMetricData"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://obj.basedata.bsm.mocha.com" xmlns:tns="http://obj.basedata.bsm.mocha.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:complexType name="ArrayOfSummarizedMetricData">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="SummarizedMetricData" nillable="true" type="tns:SummarizedMetricData"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="SummarizedMetricData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="avgValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="dateTime" type="xsd:long"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="maxValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="minValue" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="queryRealTimeMetricData">
+    <wsdl:part element="tns:queryRealTimeMetricData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSummaryFrequencyResponse">
+    <wsdl:part element="tns:getSummaryFrequencyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="querySummaryMetricDataBatchResponse">
+    <wsdl:part element="tns:querySummaryMetricDataBatchResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getSummaryFrequency">
+    <wsdl:part element="tns:getSummaryFrequency" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryRealTimeMetricDataBatch">
+    <wsdl:part element="tns:queryRealTimeMetricDataBatch" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="querySummaryMetricData">
+    <wsdl:part element="tns:querySummaryMetricData" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="querySummaryMetricDataBatch">
+    <wsdl:part element="tns:querySummaryMetricDataBatch" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryRealTimeMetricDataBatchResponse">
+    <wsdl:part element="tns:queryRealTimeMetricDataBatchResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="queryRealTimeMetricDataResponse">
+    <wsdl:part element="tns:queryRealTimeMetricDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="querySummaryMetricDataResponse">
+    <wsdl:part element="tns:querySummaryMetricDataResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MetricDataServiceDevImplPortType">
+    <wsdl:operation name="queryRealTimeMetricDataBatch">
+      <wsdl:input message="tns:queryRealTimeMetricDataBatch" name="queryRealTimeMetricDataBatch">
+    </wsdl:input>
+      <wsdl:output message="tns:queryRealTimeMetricDataBatchResponse" name="queryRealTimeMetricDataBatchResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSummaryFrequency">
+      <wsdl:input message="tns:getSummaryFrequency" name="getSummaryFrequency">
+    </wsdl:input>
+      <wsdl:output message="tns:getSummaryFrequencyResponse" name="getSummaryFrequencyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="querySummaryMetricDataBatch">
+      <wsdl:input message="tns:querySummaryMetricDataBatch" name="querySummaryMetricDataBatch">
+    </wsdl:input>
+      <wsdl:output message="tns:querySummaryMetricDataBatchResponse" name="querySummaryMetricDataBatchResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="querySummaryMetricData">
+      <wsdl:input message="tns:querySummaryMetricData" name="querySummaryMetricData">
+    </wsdl:input>
+      <wsdl:output message="tns:querySummaryMetricDataResponse" name="querySummaryMetricDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryRealTimeMetricData">
+      <wsdl:input message="tns:queryRealTimeMetricData" name="queryRealTimeMetricData">
+    </wsdl:input>
+      <wsdl:output message="tns:queryRealTimeMetricDataResponse" name="queryRealTimeMetricDataResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MetricDataServiceDevImplSoapBinding" type="tns:MetricDataServiceDevImplPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSummaryFrequency">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSummaryFrequency">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSummaryFrequencyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryRealTimeMetricDataBatch">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="queryRealTimeMetricDataBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="queryRealTimeMetricDataBatchResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="querySummaryMetricDataBatch">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="querySummaryMetricDataBatch">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="querySummaryMetricDataBatchResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="querySummaryMetricData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="querySummaryMetricData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="querySummaryMetricDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="queryRealTimeMetricData">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="queryRealTimeMetricData">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="queryRealTimeMetricDataResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MetricDataServiceDevImpl">
+    <wsdl:port binding="tns:MetricDataServiceDevImplSoapBinding" name="MetricDataServiceDevImplPort">
+      <soap:address location="http://172.30.251.75//pureportal/webservices/metric"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

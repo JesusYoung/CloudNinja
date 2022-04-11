@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="BizsmServiceDevImpl" targetNamespace="http://impl.bizsm.dev.bsm.mocha.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://impl.bizsm.dev.bsm.mocha.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://obj.dev.bsm.mocha.com" xmlns:tns="http://obj.dev.bsm.mocha.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:complexType name="ArrayOfBizsmRelaResIns">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="BizsmRelaResIns" nillable="true" type="tns:BizsmRelaResIns"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationListExtendObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="confirmDate" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmPeople" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="content" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="domain" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="eventDataId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="ipAddress" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="isLink" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="level" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="levelColor" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="moduleId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="notificationId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="objectTypeName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="occurDate" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="platform" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="BizsmRelaDept">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="businessDeptId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="businessDeptName" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfBizsmRelaBiz">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="BizsmRelaBiz" nillable="true" type="tns:BizsmRelaBiz"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfBizsmRelaDept">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="BizsmRelaDept" nillable="true" type="tns:BizsmRelaDept"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="BizsmRelaResIns">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="instanceCategory" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceState" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="ipAddress" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="BizsmListObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="alarmNum" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmState" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="isMonitor" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resNum" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfBizsmListObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="BizsmListObj" nillable="true" type="tns:BizsmListObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="BizsmRelaBiz">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="businessRelaBizAlarmNum" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="businessRelaBizId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="businessRelaBizName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="businessRelaBizResNum" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="businessRelaBizState" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="BizsmDetailInfoObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="bizsmId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmNotificationObj" nillable="true" type="tns:ArrayOfNotificationListExtendObj"/>
+<xsd:element minOccurs="0" name="bizsmReason" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmRelaBizObj" nillable="true" type="tns:ArrayOfBizsmRelaBiz"/>
+<xsd:element minOccurs="0" name="bizsmRelaDeptObj" nillable="true" type="tns:ArrayOfBizsmRelaDept"/>
+<xsd:element minOccurs="0" name="bizsmRelaResInsObj" nillable="true" type="tns:ArrayOfBizsmRelaResIns"/>
+<xsd:element minOccurs="0" name="bizsmRemark" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmState" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="isMonitor" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="responsiblePerson" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfNotificationListExtendObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="NotificationListExtendObj" nillable="true" type="tns:NotificationListExtendObj"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://impl.bizsm.dev.bsm.mocha.com/" xmlns:ns0="http://obj.dev.bsm.mocha.com" xmlns:tns="http://impl.bizsm.dev.bsm.mocha.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:import namespace="http://obj.dev.bsm.mocha.com"/>
+<xsd:element name="deleteBizService" type="tns:deleteBizService"/>
+<xsd:complexType name="deleteBizService">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="bizId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="deleteBizServiceResponse" type="tns:deleteBizServiceResponse"/>
+<xsd:complexType name="deleteBizServiceResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getBizsmByIdAndPageIns" type="tns:getBizsmByIdAndPageIns"/>
+<xsd:complexType name="getBizsmByIdAndPageIns">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="searchRelaName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getBizsmByIdAndPageInsResponse" type="tns:getBizsmByIdAndPageInsResponse"/>
+<xsd:complexType name="getBizsmByIdAndPageInsResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:BizsmDetailInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getBizsmById" type="tns:getBizsmById"/>
+<xsd:complexType name="getBizsmById">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="bizsmId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="searchRelaName" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getBizsmByIdResponse" type="tns:getBizsmByIdResponse"/>
+<xsd:complexType name="getBizsmByIdResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:BizsmDetailInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="createBizService" type="tns:createBizService"/>
+<xsd:complexType name="createBizService">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="bizName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="userId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="domainId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="desc" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="createBizServiceResponse" type="tns:createBizServiceResponse"/>
+<xsd:complexType name="createBizServiceResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getBizsmList" type="tns:getBizsmList"/>
+<xsd:complexType name="getBizsmList">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getBizsmListResponse" type="tns:getBizsmListResponse"/>
+<xsd:complexType name="getBizsmListResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfBizsmListObj"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="createBizServiceResponse">
+    <wsdl:part element="tns:createBizServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBizsmList">
+    <wsdl:part element="tns:getBizsmList" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBizsmByIdAndPageInsResponse">
+    <wsdl:part element="tns:getBizsmByIdAndPageInsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBizServiceResponse">
+    <wsdl:part element="tns:deleteBizServiceResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteBizService">
+    <wsdl:part element="tns:deleteBizService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBizsmById">
+    <wsdl:part element="tns:getBizsmById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createBizService">
+    <wsdl:part element="tns:createBizService" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBizsmByIdAndPageIns">
+    <wsdl:part element="tns:getBizsmByIdAndPageIns" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBizsmListResponse">
+    <wsdl:part element="tns:getBizsmListResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getBizsmByIdResponse">
+    <wsdl:part element="tns:getBizsmByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="BizsmServiceDevImplPortType">
+    <wsdl:operation name="deleteBizService">
+      <wsdl:input message="tns:deleteBizService" name="deleteBizService">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteBizServiceResponse" name="deleteBizServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBizsmByIdAndPageIns">
+      <wsdl:input message="tns:getBizsmByIdAndPageIns" name="getBizsmByIdAndPageIns">
+    </wsdl:input>
+      <wsdl:output message="tns:getBizsmByIdAndPageInsResponse" name="getBizsmByIdAndPageInsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBizsmById">
+      <wsdl:input message="tns:getBizsmById" name="getBizsmById">
+    </wsdl:input>
+      <wsdl:output message="tns:getBizsmByIdResponse" name="getBizsmByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBizService">
+      <wsdl:input message="tns:createBizService" name="createBizService">
+    </wsdl:input>
+      <wsdl:output message="tns:createBizServiceResponse" name="createBizServiceResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBizsmList">
+      <wsdl:input message="tns:getBizsmList" name="getBizsmList">
+    </wsdl:input>
+      <wsdl:output message="tns:getBizsmListResponse" name="getBizsmListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BizsmServiceDevImplSoapBinding" type="tns:BizsmServiceDevImplPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="deleteBizService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteBizService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteBizServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBizsmByIdAndPageIns">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBizsmByIdAndPageIns">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBizsmByIdAndPageInsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createBizService">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="createBizService">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createBizServiceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBizsmById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBizsmById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBizsmByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBizsmList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getBizsmList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getBizsmListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BizsmServiceDevImpl">
+    <wsdl:port binding="tns:BizsmServiceDevImplSoapBinding" name="BizsmServiceDevImplPort">
+      <soap:address location="http://172.30.251.75/pureportal/webservices/bizsm"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,721 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="NotificationServiceDevImpl" targetNamespace="http://impl.notification.dev.bsm.mocha.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://impl.notification.dev.bsm.mocha.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.notification.dev.bsm.mocha.com/" xmlns:ns0="http://obj.dev.bsm.mocha.com" xmlns:tns="http://impl.notification.dev.bsm.mocha.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:import namespace="http://obj.dev.bsm.mocha.com"/>
+<xsd:complexType name="ArrayOfString">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByClientTimeForApp" type="tns:getNotificationListByClientTimeForApp"/>
+<xsd:complexType name="getNotificationListByClientTimeForApp">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="startTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="endTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByClientTimeForAppResponse" type="tns:getNotificationListByClientTimeForAppResponse"/>
+<xsd:complexType name="getNotificationListByClientTimeForAppResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfNotificationListExtendObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="modifyNotification" type="tns:modifyNotification"/>
+<xsd:complexType name="modifyNotification">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="notificationId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="flag" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="modifyNotificationResponse" type="tns:modifyNotificationResponse"/>
+<xsd:complexType name="modifyNotificationResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:NotificationOperationObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByModifyClientTimeForApp" type="tns:getNotificationListByModifyClientTimeForApp"/>
+<xsd:complexType name="getNotificationListByModifyClientTimeForApp">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="startTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="endTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByModifyClientTimeForAppResponse" type="tns:getNotificationListByModifyClientTimeForAppResponse"/>
+<xsd:complexType name="getNotificationListByModifyClientTimeForAppResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfNotificationListExtendObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationDetail" type="tns:getNotificationDetail"/>
+<xsd:complexType name="getNotificationDetail">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="eventDataId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationDetailResponse" type="tns:getNotificationDetailResponse"/>
+<xsd:complexType name="getNotificationDetailResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:NotificationDetailObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByServerTime" type="tns:getNotificationListByServerTime"/>
+<xsd:complexType name="getNotificationListByServerTime">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="timeMills" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByServerTimeResponse" type="tns:getNotificationListByServerTimeResponse"/>
+<xsd:complexType name="getNotificationListByServerTimeResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfNotificationListObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountBySeverityIds" type="tns:getNotificationCountBySeverityIds"/>
+<xsd:complexType name="getNotificationCountBySeverityIds">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="timeMills" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountBySeverityIdsResponse" type="tns:getNotificationCountBySeverityIdsResponse"/>
+<xsd:complexType name="getNotificationCountBySeverityIdsResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:NotificationMulCountObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountByResourceType" type="tns:getNotificationCountByResourceType"/>
+<xsd:complexType name="getNotificationCountByResourceType">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="resourceTypeId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="timeMills" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountByResourceTypeResponse" type="tns:getNotificationCountByResourceTypeResponse"/>
+<xsd:complexType name="getNotificationCountByResourceTypeResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:NotificationCountObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getExecuteScript" type="tns:getExecuteScript"/>
+<xsd:complexType name="getExecuteScript">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="actionId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getExecuteScriptResponse" type="tns:getExecuteScriptResponse"/>
+<xsd:complexType name="getExecuteScriptResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:CommonObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByModifyClientTime" type="tns:getNotificationListByModifyClientTime"/>
+<xsd:complexType name="getNotificationListByModifyClientTime">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="startTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="endTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByModifyClientTimeResponse" type="tns:getNotificationListByModifyClientTimeResponse"/>
+<xsd:complexType name="getNotificationListByModifyClientTimeResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfNotificationListObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountByServerTime" type="tns:getNotificationCountByServerTime"/>
+<xsd:complexType name="getNotificationCountByServerTime">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="timeMills" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountByServerTimeResponse" type="tns:getNotificationCountByServerTimeResponse"/>
+<xsd:complexType name="getNotificationCountByServerTimeResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:NotificationCountObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByClientTime" type="tns:getNotificationListByClientTime"/>
+<xsd:complexType name="getNotificationListByClientTime">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="startTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="endTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByClientTimeResponse" type="tns:getNotificationListByClientTimeResponse"/>
+<xsd:complexType name="getNotificationListByClientTimeResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfNotificationListObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountByIsConfirm" type="tns:getNotificationCountByIsConfirm"/>
+<xsd:complexType name="getNotificationCountByIsConfirm">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element name="timeMills" nillable="true" type="tns:ArrayOfString"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountByIsConfirmResponse" type="tns:getNotificationCountByIsConfirmResponse"/>
+<xsd:complexType name="getNotificationCountByIsConfirmResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfNotificationIsConfirmCount"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountByClientTime" type="tns:getNotificationCountByClientTime"/>
+<xsd:complexType name="getNotificationCountByClientTime">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="startTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="endTime" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationCountByClientTimeResponse" type="tns:getNotificationCountByClientTimeResponse"/>
+<xsd:complexType name="getNotificationCountByClientTimeResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:NotificationCountObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByServerTimeForApp" type="tns:getNotificationListByServerTimeForApp"/>
+<xsd:complexType name="getNotificationListByServerTimeForApp">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="moduleId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventGroupId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element name="eventSeverityId" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="timeMills" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getNotificationListByServerTimeForAppResponse" type="tns:getNotificationListByServerTimeForAppResponse"/>
+<xsd:complexType name="getNotificationListByServerTimeForAppResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfNotificationListExtendObj"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://obj.dev.bsm.mocha.com" xmlns:tns="http://obj.dev.bsm.mocha.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:complexType name="ArrayOfNotificationServiceListObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="NotificationServiceListObj" nillable="true" type="tns:NotificationServiceListObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfNotificationListObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="NotificationListObj" nillable="true" type="tns:NotificationListObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationMulCountObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="criticalCount" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="fatalCount" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="infoCount" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="notificationCount" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="severeCount" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="unknownCount" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="warnCount" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationListObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="confirmDate" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="content" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="domain" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="ipAddress" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="isLink" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="level" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="levelColor" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="moduleId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="notificationId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="objectTypeName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="occurDate" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="platform" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationIsConfirmCount">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="confirmCount" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="unConfirmCount" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationCountObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="notificationCount" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfWirelessActionObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="WirelessActionObj" nillable="true" type="tns:WirelessActionObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfNotificationListExtendObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="NotificationListExtendObj" nillable="true" type="tns:NotificationListExtendObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationListExtendObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="confirmDate" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="confirmPeople" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="content" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="domain" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="eventDataId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="ipAddress" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="isLink" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="level" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="levelColor" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="moduleId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="notificationId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="objectName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="objectTypeName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="occurDate" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="platform" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationDetailObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="actionList" nillable="true" type="tns:ArrayOfWirelessActionObj"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="maintenancePeople" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceList" nillable="true" type="tns:ArrayOfNotificationServiceListObj"/>
+<xsd:element minOccurs="0" name="telPhone" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationServiceListObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resImagePath" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceDesc" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceUser" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationOperationObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="operationflag" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfNotificationIsConfirmCount">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="NotificationIsConfirmCount" nillable="true" type="tns:NotificationIsConfirmCount"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CommonObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="actionFlag" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="WirelessActionObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="actionId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="actionName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getNotificationCountBySeverityIds">
+    <wsdl:part element="tns:getNotificationCountBySeverityIds" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByModifyClientTimeForApp">
+    <wsdl:part element="tns:getNotificationListByModifyClientTimeForApp" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="modifyNotification">
+    <wsdl:part element="tns:modifyNotification" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationDetail">
+    <wsdl:part element="tns:getNotificationDetail" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByClientTimeForApp">
+    <wsdl:part element="tns:getNotificationListByClientTimeForApp" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountByResourceType">
+    <wsdl:part element="tns:getNotificationCountByResourceType" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByServerTimeResponse">
+    <wsdl:part element="tns:getNotificationListByServerTimeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByServerTimeForAppResponse">
+    <wsdl:part element="tns:getNotificationListByServerTimeForAppResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByModifyClientTimeResponse">
+    <wsdl:part element="tns:getNotificationListByModifyClientTimeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByClientTimeResponse">
+    <wsdl:part element="tns:getNotificationListByClientTimeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getExecuteScriptResponse">
+    <wsdl:part element="tns:getExecuteScriptResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByServerTime">
+    <wsdl:part element="tns:getNotificationListByServerTime" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountByIsConfirm">
+    <wsdl:part element="tns:getNotificationCountByIsConfirm" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountByResourceTypeResponse">
+    <wsdl:part element="tns:getNotificationCountByResourceTypeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByServerTimeForApp">
+    <wsdl:part element="tns:getNotificationListByServerTimeForApp" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountByClientTimeResponse">
+    <wsdl:part element="tns:getNotificationCountByClientTimeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountByServerTime">
+    <wsdl:part element="tns:getNotificationCountByServerTime" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountByIsConfirmResponse">
+    <wsdl:part element="tns:getNotificationCountByIsConfirmResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountByClientTime">
+    <wsdl:part element="tns:getNotificationCountByClientTime" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="modifyNotificationResponse">
+    <wsdl:part element="tns:modifyNotificationResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getExecuteScript">
+    <wsdl:part element="tns:getExecuteScript" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountBySeverityIdsResponse">
+    <wsdl:part element="tns:getNotificationCountBySeverityIdsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByClientTime">
+    <wsdl:part element="tns:getNotificationListByClientTime" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByModifyClientTime">
+    <wsdl:part element="tns:getNotificationListByModifyClientTime" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationCountByServerTimeResponse">
+    <wsdl:part element="tns:getNotificationCountByServerTimeResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByModifyClientTimeForAppResponse">
+    <wsdl:part element="tns:getNotificationListByModifyClientTimeForAppResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationDetailResponse">
+    <wsdl:part element="tns:getNotificationDetailResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getNotificationListByClientTimeForAppResponse">
+    <wsdl:part element="tns:getNotificationListByClientTimeForAppResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="NotificationServiceDevImplPortType">
+    <wsdl:operation name="getNotificationListByClientTimeForApp">
+      <wsdl:input message="tns:getNotificationListByClientTimeForApp" name="getNotificationListByClientTimeForApp">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationListByClientTimeForAppResponse" name="getNotificationListByClientTimeForAppResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyNotification">
+      <wsdl:input message="tns:modifyNotification" name="modifyNotification">
+    </wsdl:input>
+      <wsdl:output message="tns:modifyNotificationResponse" name="modifyNotificationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByModifyClientTimeForApp">
+      <wsdl:input message="tns:getNotificationListByModifyClientTimeForApp" name="getNotificationListByModifyClientTimeForApp">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationListByModifyClientTimeForAppResponse" name="getNotificationListByModifyClientTimeForAppResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationDetail">
+      <wsdl:input message="tns:getNotificationDetail" name="getNotificationDetail">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationDetailResponse" name="getNotificationDetailResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByServerTime">
+      <wsdl:input message="tns:getNotificationListByServerTime" name="getNotificationListByServerTime">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationListByServerTimeResponse" name="getNotificationListByServerTimeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountBySeverityIds">
+      <wsdl:input message="tns:getNotificationCountBySeverityIds" name="getNotificationCountBySeverityIds">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationCountBySeverityIdsResponse" name="getNotificationCountBySeverityIdsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountByResourceType">
+      <wsdl:input message="tns:getNotificationCountByResourceType" name="getNotificationCountByResourceType">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationCountByResourceTypeResponse" name="getNotificationCountByResourceTypeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExecuteScript">
+      <wsdl:input message="tns:getExecuteScript" name="getExecuteScript">
+    </wsdl:input>
+      <wsdl:output message="tns:getExecuteScriptResponse" name="getExecuteScriptResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByModifyClientTime">
+      <wsdl:input message="tns:getNotificationListByModifyClientTime" name="getNotificationListByModifyClientTime">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationListByModifyClientTimeResponse" name="getNotificationListByModifyClientTimeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountByServerTime">
+      <wsdl:input message="tns:getNotificationCountByServerTime" name="getNotificationCountByServerTime">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationCountByServerTimeResponse" name="getNotificationCountByServerTimeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByClientTime">
+      <wsdl:input message="tns:getNotificationListByClientTime" name="getNotificationListByClientTime">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationListByClientTimeResponse" name="getNotificationListByClientTimeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountByIsConfirm">
+      <wsdl:input message="tns:getNotificationCountByIsConfirm" name="getNotificationCountByIsConfirm">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationCountByIsConfirmResponse" name="getNotificationCountByIsConfirmResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountByClientTime">
+      <wsdl:input message="tns:getNotificationCountByClientTime" name="getNotificationCountByClientTime">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationCountByClientTimeResponse" name="getNotificationCountByClientTimeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByServerTimeForApp">
+      <wsdl:input message="tns:getNotificationListByServerTimeForApp" name="getNotificationListByServerTimeForApp">
+    </wsdl:input>
+      <wsdl:output message="tns:getNotificationListByServerTimeForAppResponse" name="getNotificationListByServerTimeForAppResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NotificationServiceDevImplSoapBinding" type="tns:NotificationServiceDevImplPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getNotificationListByClientTimeForApp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationListByClientTimeForApp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationListByClientTimeForAppResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyNotification">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="modifyNotification">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="modifyNotificationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationDetail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationDetail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationDetailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByModifyClientTimeForApp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationListByModifyClientTimeForApp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationListByModifyClientTimeForAppResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountBySeverityIds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationCountBySeverityIds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationCountBySeverityIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByServerTime">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationListByServerTime">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationListByServerTimeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountByResourceType">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationCountByResourceType">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationCountByResourceTypeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getExecuteScript">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getExecuteScript">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getExecuteScriptResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByModifyClientTime">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationListByModifyClientTime">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationListByModifyClientTimeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountByServerTime">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationCountByServerTime">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationCountByServerTimeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByClientTime">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationListByClientTime">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationListByClientTimeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountByIsConfirm">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationCountByIsConfirm">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationCountByIsConfirmResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationCountByClientTime">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationCountByClientTime">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationCountByClientTimeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNotificationListByServerTimeForApp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getNotificationListByServerTimeForApp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNotificationListByServerTimeForAppResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NotificationServiceDevImpl">
+    <wsdl:port binding="tns:NotificationServiceDevImplSoapBinding" name="NotificationServiceDevImplPort">
+      <soap:address location="http://172.30.251.75/pureportal/webservices/notification"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

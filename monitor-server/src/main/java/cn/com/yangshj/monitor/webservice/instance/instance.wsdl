@@ -1,0 +1,1119 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="ResourceInstanceServiceDevImpl" targetNamespace="http://impl.instance.dev.bsm.mocha.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://impl.instance.dev.bsm.mocha.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://obj.dev.bsm.mocha.com" xmlns:ns0="http://impl.instance.dev.bsm.mocha.com/" xmlns:tns="http://obj.dev.bsm.mocha.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:import namespace="http://impl.instance.dev.bsm.mocha.com/"/>
+<xsd:complexType name="ArrayOfResourceCategoryObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ResourceCategoryObj" nillable="true" type="tns:ResourceCategoryObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ConfigChangeObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="baseValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="changeRecord" nillable="true" type="tns:ArrayOfChangeRecord"/>
+<xsd:element minOccurs="0" name="currentValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricGroup" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricName" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ResourceInstanceInfoObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="categoryGroupId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="children" nillable="true" type="tns:ArrayOfResourceInstanceInfoObj"/>
+<xsd:element minOccurs="0" name="desc" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="id" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="parentId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resource" nillable="true" type="tns:ResourceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfNotificationServiceListObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="NotificationServiceListObj" nillable="true" type="tns:NotificationServiceListObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="CategoryInstanceObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="categoryId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="categoryName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceTotalNum" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resInsDetailObj" nillable="true" type="tns:ArrayOfResInsDetailObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="Info">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="infoId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="infoName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="infoValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="infoValueColor" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ResInsDetailObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="availMetric" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="baseInfo" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="componentType" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="configMetric" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="infoMetric" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="instanceCategoryId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceCategoryName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceState" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="ipAddress" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="isChildInstance" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="monitorState" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="parentInstanceName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="performMetric" nillable="true" type="tns:ArrayOfInfo"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ResourceCategoryObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="childResourceCategory" nillable="true" type="tns:ArrayOfResourceCategoryObj"/>
+<xsd:element minOccurs="0" name="resourceCategoryId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resourceCategoryName" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ResInsDetailExtendObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="availMetric" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="baseInfo" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="componentType" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="configMetric" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="infoMetric" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="instanceCategoryId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceCategoryName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceState" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="ipAddress" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="isChildInstance" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="localtion" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="maintenancePeople" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="monitorState" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="parentInstanceName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="performMetric" nillable="true" type="tns:ArrayOfInfo"/>
+<xsd:element minOccurs="0" name="serviceList" nillable="true" type="tns:ArrayOfNotificationServiceListObj"/>
+<xsd:element minOccurs="0" name="telPhone" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="InstanceResultObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="instCountByState" nillable="true" type="ns0:string2stringMap"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resInsDetailObj" nillable="true" type="tns:ArrayOfResInsDetailObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfInstanceTopNData">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="InstanceTopNData" nillable="true" type="tns:InstanceTopNData"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfCategoryInstanceObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="CategoryInstanceObj" nillable="true" type="tns:CategoryInstanceObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfMetricInfoObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="MetricInfoObj" nillable="true" type="tns:MetricInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="MetricInfoObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="metricId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricUnit" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resourceId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ResourceInfoObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="categoryGroupId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resourceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resourceName" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="InstanceTopNData">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="topMetricVal" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfResourceInstanceInfoObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ResourceInstanceInfoObj" nillable="true" type="tns:ResourceInstanceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfResourceInfoObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ResourceInfoObj" nillable="true" type="tns:ResourceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfChangeRecord">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ChangeRecord" nillable="true" type="tns:ChangeRecord"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfInfo">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="Info" nillable="true" type="tns:Info"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ChangeRecord">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="changeTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="changeValue" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="FocusResInsInfoObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="categoryGroupId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="children" nillable="true" type="tns:ArrayOfFocusResInsInfoObj"/>
+<xsd:element minOccurs="0" name="desc" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="id" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="ip" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="name" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="parentId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resource" nillable="true" type="tns:ResourceInfoObj"/>
+<xsd:element minOccurs="0" name="resourceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="state" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="todayAlarmNum" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="todayAvail" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfResInsDetailObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ResInsDetailObj" nillable="true" type="tns:ResInsDetailObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfConfigChangeObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="ConfigChangeObj" nillable="true" type="tns:ConfigChangeObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfFocusResInsInfoObj">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="FocusResInsInfoObj" nillable="true" type="tns:FocusResInsInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="NotificationServiceListObj">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="loginResult" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="resImagePath" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceDesc" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceName" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="serviceUser" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+<xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://impl.instance.dev.bsm.mocha.com/" xmlns:ns0="http://obj.dev.bsm.mocha.com" xmlns:tns="http://impl.instance.dev.bsm.mocha.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:import namespace="http://obj.dev.bsm.mocha.com"/>
+<xsd:complexType name="string2stringMap">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="entry">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="key" type="xsd:string"/>
+<xsd:element minOccurs="0" name="value" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="ArrayOfString">
+<xsd:sequence>
+<xsd:element maxOccurs="unbounded" minOccurs="0" name="string" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesById" type="tns:getResourceInstancesById"/>
+<xsd:complexType name="getResourceInstancesById">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesByIdResponse" type="tns:getResourceInstancesByIdResponse"/>
+<xsd:complexType name="getResourceInstancesByIdResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ResourceInstanceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesByIP" type="tns:getResourceInstancesByIP"/>
+<xsd:complexType name="getResourceInstancesByIP">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="ipAddress" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesByIPResponse" type="tns:getResourceInstancesByIPResponse"/>
+<xsd:complexType name="getResourceInstancesByIPResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfResourceInstanceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getAllResourceCategory" type="tns:getAllResourceCategory"/>
+<xsd:complexType name="getAllResourceCategory">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="getAllResourceCategoryResponse" type="tns:getAllResourceCategoryResponse"/>
+<xsd:complexType name="getAllResourceCategoryResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfResourceCategoryObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="modifyDiscoveryRes" type="tns:modifyDiscoveryRes"/>
+<xsd:complexType name="modifyDiscoveryRes">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="info" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="modifyDiscoveryResResponse" type="tns:modifyDiscoveryResResponse"/>
+<xsd:complexType name="modifyDiscoveryResResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesByResourceId" type="tns:getResourceInstancesByResourceId"/>
+<xsd:complexType name="getResourceInstancesByResourceId">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="resourceId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesByResourceIdResponse" type="tns:getResourceInstancesByResourceIdResponse"/>
+<xsd:complexType name="getResourceInstancesByResourceIdResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfResourceInstanceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getFocusResInsInfoInIds" type="tns:getFocusResInsInfoInIds"/>
+<xsd:complexType name="getFocusResInsInfoInIds">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element name="instanceIds" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="timeMills" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getFocusResInsInfoInIdsResponse" type="tns:getFocusResInsInfoInIdsResponse"/>
+<xsd:complexType name="getFocusResInsInfoInIdsResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfFocusResInsInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getMetricInfoByResourceId" type="tns:getMetricInfoByResourceId"/>
+<xsd:complexType name="getMetricInfoByResourceId">
+<xsd:sequence>
+<xsd:element name="resourceId" nillable="true" type="tns:ArrayOfString"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getMetricInfoByResourceIdResponse" type="tns:getMetricInfoByResourceIdResponse"/>
+<xsd:complexType name="getMetricInfoByResourceIdResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfMetricInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getTopNDatas" type="tns:getTopNDatas"/>
+<xsd:complexType name="getTopNDatas">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="categoryId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="metricId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getTopNDatasResponse" type="tns:getTopNDatasResponse"/>
+<xsd:complexType name="getTopNDatasResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfInstanceTopNData"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsNumByState" type="tns:getResInsNumByState"/>
+<xsd:complexType name="getResInsNumByState">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsNumByStateResponse" type="tns:getResInsNumByStateResponse"/>
+<xsd:complexType name="getResInsNumByStateResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" nillable="true" type="tns:string2stringMap"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsByCateAndStateWithStatistic" type="tns:getResInsByCateAndStateWithStatistic"/>
+<xsd:complexType name="getResInsByCateAndStateWithStatistic">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="categoryId" nillable="true" type="xsd:string"/>
+<xsd:element name="stateType" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="searchValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsByCateAndStateWithStatisticResponse" type="tns:getResInsByCateAndStateWithStatisticResponse"/>
+<xsd:complexType name="getResInsByCateAndStateWithStatisticResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:InstanceResultObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsByCateAndState" type="tns:getResInsByCateAndState"/>
+<xsd:complexType name="getResInsByCateAndState">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="categoryId" nillable="true" type="xsd:string"/>
+<xsd:element name="stateType" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="searchValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsByCateAndStateResponse" type="tns:getResInsByCateAndStateResponse"/>
+<xsd:complexType name="getResInsByCateAndStateResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfCategoryInstanceObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="deleteRes" type="tns:deleteRes"/>
+<xsd:complexType name="deleteRes">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="deleteResResponse" type="tns:deleteResResponse"/>
+<xsd:complexType name="deleteResResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getAttentionAlarmInstances" type="tns:getAttentionAlarmInstances"/>
+<xsd:complexType name="getAttentionAlarmInstances">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getAttentionAlarmInstancesResponse" type="tns:getAttentionAlarmInstancesResponse"/>
+<xsd:complexType name="getAttentionAlarmInstancesResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfResourceInstanceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getCateNumByCateAndState" type="tns:getCateNumByCateAndState"/>
+<xsd:complexType name="getCateNumByCateAndState">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="categoryId" nillable="true" type="xsd:string"/>
+<xsd:element name="stateType" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="searchValue" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getCateNumByCateAndStateResponse" type="tns:getCateNumByCateAndStateResponse"/>
+<xsd:complexType name="getCateNumByCateAndStateResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfCategoryInstanceObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getChildInsByParentId" type="tns:getChildInsByParentId"/>
+<xsd:complexType name="getChildInsByParentId">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element name="stateType" nillable="true" type="tns:ArrayOfString"/>
+<xsd:element minOccurs="0" name="searchValue" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="pageSize" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="currentPage" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getChildInsByParentIdResponse" type="tns:getChildInsByParentIdResponse"/>
+<xsd:complexType name="getChildInsByParentIdResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfResInsDetailObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesInIds" type="tns:getResourceInstancesInIds"/>
+<xsd:complexType name="getResourceInstancesInIds">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="ids" type="tns:ArrayOfString"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesInIdsResponse" type="tns:getResourceInstancesInIdsResponse"/>
+<xsd:complexType name="getResourceInstancesInIdsResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfResourceInstanceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsDetailById" type="tns:getResInsDetailById"/>
+<xsd:complexType name="getResInsDetailById">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsDetailByIdResponse" type="tns:getResInsDetailByIdResponse"/>
+<xsd:complexType name="getResInsDetailByIdResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ResInsDetailObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getConfigChangeInfoByServer" type="tns:getConfigChangeInfoByServer"/>
+<xsd:complexType name="getConfigChangeInfoByServer">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="timeMills" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getConfigChangeInfoByServerResponse" type="tns:getConfigChangeInfoByServerResponse"/>
+<xsd:complexType name="getConfigChangeInfoByServerResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfConfigChangeObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getAllParentResourceCategory" type="tns:getAllParentResourceCategory"/>
+<xsd:complexType name="getAllParentResourceCategory">
+<xsd:sequence/>
+</xsd:complexType>
+<xsd:element name="getAllParentResourceCategoryResponse" type="tns:getAllParentResourceCategoryResponse"/>
+<xsd:complexType name="getAllParentResourceCategoryResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfResourceCategoryObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceByCategoryGroup" type="tns:getResourceByCategoryGroup"/>
+<xsd:complexType name="getResourceByCategoryGroup">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="categoryGroupId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceByCategoryGroupResponse" type="tns:getResourceByCategoryGroupResponse"/>
+<xsd:complexType name="getResourceByCategoryGroupResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfResourceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getConfigChangeInfoByClient" type="tns:getConfigChangeInfoByClient"/>
+<xsd:complexType name="getConfigChangeInfoByClient">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="startTime" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="endTime" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getConfigChangeInfoByClientResponse" type="tns:getConfigChangeInfoByClientResponse"/>
+<xsd:complexType name="getConfigChangeInfoByClientResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ArrayOfConfigChangeObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsDetailByIdForApp" type="tns:getResInsDetailByIdForApp"/>
+<xsd:complexType name="getResInsDetailByIdForApp">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="instanceId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResInsDetailByIdForAppResponse" type="tns:getResInsDetailByIdForAppResponse"/>
+<xsd:complexType name="getResInsDetailByIdForAppResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" type="ns0:ResInsDetailExtendObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesByCategoryGroup" type="tns:getResourceInstancesByCategoryGroup"/>
+<xsd:complexType name="getResourceInstancesByCategoryGroup">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="resourceCategoryGroupId" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="getResourceInstancesByCategoryGroupResponse" type="tns:getResourceInstancesByCategoryGroupResponse"/>
+<xsd:complexType name="getResourceInstancesByCategoryGroupResponse">
+<xsd:sequence>
+<xsd:element name="return" nillable="true" type="ns0:ArrayOfResourceInstanceInfoObj"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="discoveryRes" type="tns:discoveryRes"/>
+<xsd:complexType name="discoveryRes">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="token" nillable="true" type="xsd:string"/>
+<xsd:element minOccurs="0" name="info" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="discoveryResResponse" type="tns:discoveryResResponse"/>
+<xsd:complexType name="discoveryResResponse">
+<xsd:sequence>
+<xsd:element minOccurs="0" name="return" nillable="true" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getResourceInstancesInIdsResponse">
+    <wsdl:part element="tns:getResourceInstancesInIdsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoveryRes">
+    <wsdl:part element="tns:discoveryRes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFocusResInsInfoInIdsResponse">
+    <wsdl:part element="tns:getFocusResInsInfoInIdsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesByResourceIdResponse">
+    <wsdl:part element="tns:getResourceInstancesByResourceIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsByCateAndStateWithStatisticResponse">
+    <wsdl:part element="tns:getResInsByCateAndStateWithStatisticResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCateNumByCateAndState">
+    <wsdl:part element="tns:getCateNumByCateAndState" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesByIdResponse">
+    <wsdl:part element="tns:getResourceInstancesByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsByCateAndStateResponse">
+    <wsdl:part element="tns:getResInsByCateAndStateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceByCategoryGroupResponse">
+    <wsdl:part element="tns:getResourceByCategoryGroupResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesByCategoryGroup">
+    <wsdl:part element="tns:getResourceInstancesByCategoryGroup" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteRes">
+    <wsdl:part element="tns:deleteRes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCateNumByCateAndStateResponse">
+    <wsdl:part element="tns:getCateNumByCateAndStateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getFocusResInsInfoInIds">
+    <wsdl:part element="tns:getFocusResInsInfoInIds" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsNumByStateResponse">
+    <wsdl:part element="tns:getResInsNumByStateResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsNumByState">
+    <wsdl:part element="tns:getResInsNumByState" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsDetailByIdResponse">
+    <wsdl:part element="tns:getResInsDetailByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllResourceCategoryResponse">
+    <wsdl:part element="tns:getAllResourceCategoryResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteResResponse">
+    <wsdl:part element="tns:deleteResResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAttentionAlarmInstancesResponse">
+    <wsdl:part element="tns:getAttentionAlarmInstancesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getChildInsByParentIdResponse">
+    <wsdl:part element="tns:getChildInsByParentIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceByCategoryGroup">
+    <wsdl:part element="tns:getResourceByCategoryGroup" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesById">
+    <wsdl:part element="tns:getResourceInstancesById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMetricInfoByResourceId">
+    <wsdl:part element="tns:getMetricInfoByResourceId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMetricInfoByResourceIdResponse">
+    <wsdl:part element="tns:getMetricInfoByResourceIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="discoveryResResponse">
+    <wsdl:part element="tns:discoveryResResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesByIPResponse">
+    <wsdl:part element="tns:getResourceInstancesByIPResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesInIds">
+    <wsdl:part element="tns:getResourceInstancesInIds" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="modifyDiscoveryRes">
+    <wsdl:part element="tns:modifyDiscoveryRes" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConfigChangeInfoByClientResponse">
+    <wsdl:part element="tns:getConfigChangeInfoByClientResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getChildInsByParentId">
+    <wsdl:part element="tns:getChildInsByParentId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesByIP">
+    <wsdl:part element="tns:getResourceInstancesByIP" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsByCateAndStateWithStatistic">
+    <wsdl:part element="tns:getResInsByCateAndStateWithStatistic" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTopNDatasResponse">
+    <wsdl:part element="tns:getTopNDatasResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllResourceCategory">
+    <wsdl:part element="tns:getAllResourceCategory" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTopNDatas">
+    <wsdl:part element="tns:getTopNDatas" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsDetailByIdForApp">
+    <wsdl:part element="tns:getResInsDetailByIdForApp" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConfigChangeInfoByServer">
+    <wsdl:part element="tns:getConfigChangeInfoByServer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAttentionAlarmInstances">
+    <wsdl:part element="tns:getAttentionAlarmInstances" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsDetailById">
+    <wsdl:part element="tns:getResInsDetailById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesByCategoryGroupResponse">
+    <wsdl:part element="tns:getResourceInstancesByCategoryGroupResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResourceInstancesByResourceId">
+    <wsdl:part element="tns:getResourceInstancesByResourceId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllParentResourceCategoryResponse">
+    <wsdl:part element="tns:getAllParentResourceCategoryResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="modifyDiscoveryResResponse">
+    <wsdl:part element="tns:modifyDiscoveryResResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConfigChangeInfoByServerResponse">
+    <wsdl:part element="tns:getConfigChangeInfoByServerResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsByCateAndState">
+    <wsdl:part element="tns:getResInsByCateAndState" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllParentResourceCategory">
+    <wsdl:part element="tns:getAllParentResourceCategory" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConfigChangeInfoByClient">
+    <wsdl:part element="tns:getConfigChangeInfoByClient" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getResInsDetailByIdForAppResponse">
+    <wsdl:part element="tns:getResInsDetailByIdForAppResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ResourceInstanceServiceDevImplPortType">
+    <wsdl:operation name="getResourceInstancesById">
+      <wsdl:input message="tns:getResourceInstancesById" name="getResourceInstancesById">
+    </wsdl:input>
+      <wsdl:output message="tns:getResourceInstancesByIdResponse" name="getResourceInstancesByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceInstancesByIP">
+      <wsdl:input message="tns:getResourceInstancesByIP" name="getResourceInstancesByIP">
+    </wsdl:input>
+      <wsdl:output message="tns:getResourceInstancesByIPResponse" name="getResourceInstancesByIPResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllResourceCategory">
+      <wsdl:input message="tns:getAllResourceCategory" name="getAllResourceCategory">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllResourceCategoryResponse" name="getAllResourceCategoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyDiscoveryRes">
+      <wsdl:input message="tns:modifyDiscoveryRes" name="modifyDiscoveryRes">
+    </wsdl:input>
+      <wsdl:output message="tns:modifyDiscoveryResResponse" name="modifyDiscoveryResResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceInstancesByResourceId">
+      <wsdl:input message="tns:getResourceInstancesByResourceId" name="getResourceInstancesByResourceId">
+    </wsdl:input>
+      <wsdl:output message="tns:getResourceInstancesByResourceIdResponse" name="getResourceInstancesByResourceIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFocusResInsInfoInIds">
+      <wsdl:input message="tns:getFocusResInsInfoInIds" name="getFocusResInsInfoInIds">
+    </wsdl:input>
+      <wsdl:output message="tns:getFocusResInsInfoInIdsResponse" name="getFocusResInsInfoInIdsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMetricInfoByResourceId">
+      <wsdl:input message="tns:getMetricInfoByResourceId" name="getMetricInfoByResourceId">
+    </wsdl:input>
+      <wsdl:output message="tns:getMetricInfoByResourceIdResponse" name="getMetricInfoByResourceIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopNDatas">
+      <wsdl:input message="tns:getTopNDatas" name="getTopNDatas">
+    </wsdl:input>
+      <wsdl:output message="tns:getTopNDatasResponse" name="getTopNDatasResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsNumByState">
+      <wsdl:input message="tns:getResInsNumByState" name="getResInsNumByState">
+    </wsdl:input>
+      <wsdl:output message="tns:getResInsNumByStateResponse" name="getResInsNumByStateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsByCateAndStateWithStatistic">
+      <wsdl:input message="tns:getResInsByCateAndStateWithStatistic" name="getResInsByCateAndStateWithStatistic">
+    </wsdl:input>
+      <wsdl:output message="tns:getResInsByCateAndStateWithStatisticResponse" name="getResInsByCateAndStateWithStatisticResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsByCateAndState">
+      <wsdl:input message="tns:getResInsByCateAndState" name="getResInsByCateAndState">
+    </wsdl:input>
+      <wsdl:output message="tns:getResInsByCateAndStateResponse" name="getResInsByCateAndStateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRes">
+      <wsdl:input message="tns:deleteRes" name="deleteRes">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteResResponse" name="deleteResResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAttentionAlarmInstances">
+      <wsdl:input message="tns:getAttentionAlarmInstances" name="getAttentionAlarmInstances">
+    </wsdl:input>
+      <wsdl:output message="tns:getAttentionAlarmInstancesResponse" name="getAttentionAlarmInstancesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCateNumByCateAndState">
+      <wsdl:input message="tns:getCateNumByCateAndState" name="getCateNumByCateAndState">
+    </wsdl:input>
+      <wsdl:output message="tns:getCateNumByCateAndStateResponse" name="getCateNumByCateAndStateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChildInsByParentId">
+      <wsdl:input message="tns:getChildInsByParentId" name="getChildInsByParentId">
+    </wsdl:input>
+      <wsdl:output message="tns:getChildInsByParentIdResponse" name="getChildInsByParentIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceInstancesInIds">
+      <wsdl:input message="tns:getResourceInstancesInIds" name="getResourceInstancesInIds">
+    </wsdl:input>
+      <wsdl:output message="tns:getResourceInstancesInIdsResponse" name="getResourceInstancesInIdsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsDetailById">
+      <wsdl:input message="tns:getResInsDetailById" name="getResInsDetailById">
+    </wsdl:input>
+      <wsdl:output message="tns:getResInsDetailByIdResponse" name="getResInsDetailByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConfigChangeInfoByServer">
+      <wsdl:input message="tns:getConfigChangeInfoByServer" name="getConfigChangeInfoByServer">
+    </wsdl:input>
+      <wsdl:output message="tns:getConfigChangeInfoByServerResponse" name="getConfigChangeInfoByServerResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllParentResourceCategory">
+      <wsdl:input message="tns:getAllParentResourceCategory" name="getAllParentResourceCategory">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllParentResourceCategoryResponse" name="getAllParentResourceCategoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceByCategoryGroup">
+      <wsdl:input message="tns:getResourceByCategoryGroup" name="getResourceByCategoryGroup">
+    </wsdl:input>
+      <wsdl:output message="tns:getResourceByCategoryGroupResponse" name="getResourceByCategoryGroupResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConfigChangeInfoByClient">
+      <wsdl:input message="tns:getConfigChangeInfoByClient" name="getConfigChangeInfoByClient">
+    </wsdl:input>
+      <wsdl:output message="tns:getConfigChangeInfoByClientResponse" name="getConfigChangeInfoByClientResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsDetailByIdForApp">
+      <wsdl:input message="tns:getResInsDetailByIdForApp" name="getResInsDetailByIdForApp">
+    </wsdl:input>
+      <wsdl:output message="tns:getResInsDetailByIdForAppResponse" name="getResInsDetailByIdForAppResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceInstancesByCategoryGroup">
+      <wsdl:input message="tns:getResourceInstancesByCategoryGroup" name="getResourceInstancesByCategoryGroup">
+    </wsdl:input>
+      <wsdl:output message="tns:getResourceInstancesByCategoryGroupResponse" name="getResourceInstancesByCategoryGroupResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoveryRes">
+      <wsdl:input message="tns:discoveryRes" name="discoveryRes">
+    </wsdl:input>
+      <wsdl:output message="tns:discoveryResResponse" name="discoveryResResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ResourceInstanceServiceDevImplSoapBinding" type="tns:ResourceInstanceServiceDevImplPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getResourceInstancesByIP">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResourceInstancesByIP">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResourceInstancesByIPResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceInstancesById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResourceInstancesById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResourceInstancesByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllResourceCategory">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllResourceCategory">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllResourceCategoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modifyDiscoveryRes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="modifyDiscoveryRes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="modifyDiscoveryResResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceInstancesByResourceId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResourceInstancesByResourceId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResourceInstancesByResourceIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFocusResInsInfoInIds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getFocusResInsInfoInIds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getFocusResInsInfoInIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMetricInfoByResourceId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMetricInfoByResourceId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMetricInfoByResourceIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsNumByState">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResInsNumByState">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResInsNumByStateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTopNDatas">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getTopNDatas">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTopNDatasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsByCateAndStateWithStatistic">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResInsByCateAndStateWithStatistic">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResInsByCateAndStateWithStatisticResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsByCateAndState">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResInsByCateAndState">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResInsByCateAndStateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="deleteRes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteResResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAttentionAlarmInstances">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAttentionAlarmInstances">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAttentionAlarmInstancesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCateNumByCateAndState">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCateNumByCateAndState">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCateNumByCateAndStateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getChildInsByParentId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getChildInsByParentId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getChildInsByParentIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceInstancesInIds">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResourceInstancesInIds">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResourceInstancesInIdsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConfigChangeInfoByServer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConfigChangeInfoByServer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConfigChangeInfoByServerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsDetailById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResInsDetailById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResInsDetailByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllParentResourceCategory">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllParentResourceCategory">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllParentResourceCategoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceByCategoryGroup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResourceByCategoryGroup">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResourceByCategoryGroupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConfigChangeInfoByClient">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConfigChangeInfoByClient">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConfigChangeInfoByClientResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResInsDetailByIdForApp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResInsDetailByIdForApp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResInsDetailByIdForAppResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="discoveryRes">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="discoveryRes">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="discoveryResResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getResourceInstancesByCategoryGroup">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getResourceInstancesByCategoryGroup">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getResourceInstancesByCategoryGroupResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ResourceInstanceServiceDevImpl">
+    <wsdl:port binding="tns:ResourceInstanceServiceDevImplSoapBinding" name="ResourceInstanceServiceDevImplPort">
+      <soap:address location="http://172.30.251.75/pureportal/webservices/instance"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
