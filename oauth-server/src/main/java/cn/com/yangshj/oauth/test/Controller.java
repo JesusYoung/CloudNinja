@@ -1,6 +1,5 @@
 package cn.com.yangshj.oauth.test;
 
-import com.oracle.tools.packager.Log;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +20,7 @@ public class Controller {
         map.put("aaa", 111);
         map.put("bbb", "asd");
 
-        Log.info("aaa: 111-------------");
+//        Log.info("aaa: 111-------------");
         System.out.println("aasdsdsdsds");
         return map;
     }

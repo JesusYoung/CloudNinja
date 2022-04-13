@@ -37,6 +37,7 @@
         <mybatis.boot.version>1.3.2</mybatis.boot.version>
         <activiti.version>7.1.0.M6</activiti.version>
         <activiti-dependencies.version>7.1.0.M6</activiti-dependencies.version>
+<!--        <activiti-dependencies.version>7.0.0.GA</activiti-dependencies.version>-->
     </properties>
 
 

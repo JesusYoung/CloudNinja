@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="2.1" xmlns="http://java.sun.com/xml/ns/jaxb">
+  <!--
+
+此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.11 生成的
+请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+在重新编译源模式时, 对此文件的所有修改都将丢失。
+生成时间: 2022.04.12 时间 02:22:14 PM CST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://impl.user.dev.bsm.mocha.com/">
+    <schemaBindings map="false">
+      <package name="ws"/>
+    </schemaBindings>
+    <bindings scd="~tns:string2anyTypeMap">
+      <class ref="ws.String2AnyTypeMap"/>
+    </bindings>
+    <bindings scd="~tns:string2stringMap">
+      <class ref="ws.String2StringMap"/>
+    </bindings>
+    <bindings scd="~tns:addUser">
+      <class ref="ws.AddUser"/>
+    </bindings>
+    <bindings scd="~tns:addUserResponse">
+      <class ref="ws.AddUserResponse"/>
+    </bindings>
+    <bindings scd="~tns:deleteUser">
+      <class ref="ws.DeleteUser"/>
+    </bindings>
+    <bindings scd="~tns:deleteUserResponse">
+      <class ref="ws.DeleteUserResponse"/>
+    </bindings>
+    <bindings scd="~tns:verifyToken">
+      <class ref="ws.VerifyToken"/>
+    </bindings>
+    <bindings scd="~tns:verifyTokenResponse">
+      <class ref="ws.VerifyTokenResponse"/>
+    </bindings>
+    <bindings scd="~tns:loginOut">
+      <class ref="ws.LoginOut"/>
+    </bindings>
+    <bindings scd="~tns:loginOutResponse">
+      <class ref="ws.LoginOutResponse"/>
+    </bindings>
+    <bindings scd="~tns:verifyUserByMobile">
+      <class ref="ws.VerifyUserByMobile"/>
+    </bindings>
+    <bindings scd="~tns:verifyUserByMobileResponse">
+      <class ref="ws.VerifyUserByMobileResponse"/>
+    </bindings>
+    <bindings scd="~tns:getUserPage">
+      <class ref="ws.GetUserPage"/>
+    </bindings>
+    <bindings scd="~tns:getUserPageResponse">
+      <class ref="ws.GetUserPageResponse"/>
+    </bindings>
+    <bindings scd="~tns:getItomConfig">
+      <class ref="ws.GetItomConfig"/>
+    </bindings>
+    <bindings scd="~tns:getItomConfigResponse">
+      <class ref="ws.GetItomConfigResponse"/>
+    </bindings>
+    <bindings scd="~tns:verifyUser">
+      <class ref="ws.VerifyUser"/>
+    </bindings>
+    <bindings scd="~tns:verifyUserResponse">
+      <class ref="ws.VerifyUserResponse"/>
+    </bindings>
+    <bindings scd="~tns:getWorkGroupByLoginName">
+      <class ref="ws.GetWorkGroupByLoginName"/>
+    </bindings>
+    <bindings scd="~tns:getWorkGroupByLoginNameResponse">
+      <class ref="ws.GetWorkGroupByLoginNameResponse"/>
+    </bindings>
+    <bindings scd="~tns:verifyUserByRSA">
+      <class ref="ws.VerifyUserByRSA"/>
+    </bindings>
+    <bindings scd="~tns:verifyUserByRSAResponse">
+      <class ref="ws.VerifyUserByRSAResponse"/>
+    </bindings>
+    <bindings scd="~tns:updateUser">
+      <class ref="ws.UpdateUser"/>
+    </bindings>
+    <bindings scd="~tns:updateUserResponse">
+      <class ref="ws.UpdateUserResponse"/>
+    </bindings>
+    <bindings scd="~tns:ArrayOfString">
+      <class ref="ws.ArrayOfString"/>
+    </bindings>
+  </bindings>
+  <bindings scd="x-schema::tns" xmlns:tns="http://obj.dev.bsm.mocha.com">
+    <schemaBindings map="false">
+      <package name="ws"/>
+    </schemaBindings>
+    <bindings scd="~tns:LoginResultObj">
+      <class ref="ws.LoginResultObj"/>
+    </bindings>
+    <bindings scd="~tns:ArrayOfUserObj">
+      <class ref="ws.ArrayOfUserObj"/>
+    </bindings>
+    <bindings scd="~tns:WorkGroupObj">
+      <class ref="ws.WorkGroupObj"/>
+    </bindings>
+    <bindings scd="~tns:UserObj">
+      <class ref="ws.UserObj"/>
+    </bindings>
+    <bindings scd="~tns:ArrayOfWorkGroupObj">
+      <class ref="ws.ArrayOfWorkGroupObj"/>
+    </bindings>
+  </bindings>
+</bindings>
+

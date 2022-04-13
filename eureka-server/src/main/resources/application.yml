@@ -3,8 +3,8 @@ server:
 
 
 spring:
-  profiles:
-    active: @profileActive@
+#  profiles:
+#    active: @profileActive@
 
   application:
     name: eureka-server
