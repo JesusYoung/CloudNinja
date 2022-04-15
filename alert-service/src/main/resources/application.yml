@@ -16,6 +16,19 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   aop:
     auto: true
+  kafka:
+    bootstrap-servers: 10.211.55.4:2181
+    producer:
+      # 键的序列化方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # 值的序列化方式
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      # 键的反序列化方式
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # 值的反序列化方式
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
 
 
 eureka:
