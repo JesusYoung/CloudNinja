@@ -2,28 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61368fc2-da1c-4a55-b422-7e1438efb5c9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/bean/LogEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLogAop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/log/IOpsLogService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/log/OpsLogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/FileReadWriteUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/SocketController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebSocketServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/alert-service/src/main/resources/static/ws.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alert-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/alert-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/LiquibaseConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/LiquibaseConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alert-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/alert-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eureka-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oauth-server/src/main/java/cn/com/yangshj/oauth/test/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/oauth-server/src/main/java/cn/com/yangshj/oauth/test/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/workflow-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow-server/target/classes/META-INF/workflow-server.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow-server/target/classes/cn/com/yangshj/workflow/WorkflowServerApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow-server/target/classes/cn/com/yangshj/workflow/controller/ProcessManageController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow-server/target/classes/cn/com/yangshj/workflow/controller/TestController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/workflow-server/target/test-classes/cn/com/yangshj/workflow/Test.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -65,17 +50,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/alert-service/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="73" column="37" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
+            <state relative-caret-position="738">
+              <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLog.java">
+        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/SocketController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+            <state relative-caret-position="285">
+              <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,19 +69,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/log/IOpsLogService.java">
+        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/FileReadWriteUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+            <state relative-caret-position="199">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/log/OpsLogServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/alert-service/src/main/resources/static/ws.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="328">
+              <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebSocketConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,43 +102,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLogAop.java">
+        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebSocketServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="59" column="82" selection-start-line="59" selection-start-column="82" selection-end-line="59" selection-end-column="82" />
+            <state relative-caret-position="197">
+              <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/controller/TestController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/alert-service/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api-gateway/src/main/resources/application.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -177,12 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/monitor-server/src/main/java/cn/com/yangshj/monitor/task/TaskLinuxCpuCollectJob.java" />
-        <option value="$PROJECT_DIR$/monitor-server/src/main/java/cn/com/yangshj/monitor/service/collect/CpuCollectServiceImpl.java" />
-        <option value="$PROJECT_DIR$/eureka-server/src/main/resources/application-dev.yml" />
-        <option value="$PROJECT_DIR$/monitor-server/src/main/java/cn/com/yangshj/monitor/utils/DataProcessUtil.java" />
-        <option value="$PROJECT_DIR$/monitor-server/src/main/resources/user.xsd" />
-        <option value="$PROJECT_DIR$/monitor-server/src/main/resources/user.wsdl" />
         <option value="$PROJECT_DIR$/monitor-server/src/main/java/cn/com/yangshj/monitor/test/webservice/ws/AddUserResponse.java" />
         <option value="$PROJECT_DIR$/monitor-server/src/main/java/cn/com/yangshj/monitor/test/webservice/ws/ArrayOfString.java" />
         <option value="$PROJECT_DIR$/monitor-server/src/main/java/cn/com/yangshj/monitor/test/webservice/ws/ArrayOfUserObj.java" />
@@ -218,7 +179,6 @@
         <option value="$PROJECT_DIR$/log-server/.mvn/wrapper/maven-wrapper.properties" />
         <option value="$PROJECT_DIR$/log-server/src/main/java/cn/com/yangshj/log/LogServerApplication.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/alert-service/pom.xml" />
         <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLog.java" />
         <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/bean/LogEntity.java" />
         <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/log/IOpsLogService.java" />
@@ -228,6 +188,13 @@
         <option value="$PROJECT_DIR$/alert-service/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/controller/TestController.java" />
         <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLogAop.java" />
+        <option value="$PROJECT_DIR$/alert-service/pom.xml" />
+        <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebSocketConfig.java" />
+        <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebScoketServer.java" />
+        <option value="$PROJECT_DIR$/alert-service/src/main/resources/static/ws.html" />
+        <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/FileReadWriteUtils.java" />
+        <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/SocketController.java" />
+        <option value="$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebSocketServer.java" />
       </list>
     </option>
   </component>
@@ -251,8 +218,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="x" value="1440" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -260,7 +228,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -312,17 +279,7 @@
               <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
               <item name="java" type="72ca9032:PsiDirectoryNodeCustom" />
               <item name="alert" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="config" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="alert-service" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="java" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="alert" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="controller" type="72ca9032:PsiDirectoryNodeCustom" />
+              <item name="websocket" type="72ca9032:PsiDirectoryNodeCustom" />
             </path>
             <path>
               <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
@@ -331,82 +288,12 @@
               <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
               <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
               <item name="resources" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="api-gateway" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="api-gateway" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="api-gateway" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="api-gateway" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="resources" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="monitor-server" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="monitor-server" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="monitor-server" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="monitor-server" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="java" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="monitor-server" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="java" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="monitor" type="72ca9032:PsiDirectoryNodeCustom" />
-            </path>
-            <path>
-              <item name="CloudNinja" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CloudNinja" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="monitor-server" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="src" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="main" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="java" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="monitor" type="72ca9032:PsiDirectoryNodeCustom" />
-              <item name="controller" type="72ca9032:PsiDirectoryNodeCustom" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -651,6 +538,7 @@
       <workItem from="1649726093874" duration="717000" />
       <workItem from="1649728503533" duration="6670000" />
       <workItem from="1649749999302" duration="4701000" />
+      <workItem from="1649817884413" duration="7053000" />
     </task>
     <servers />
   </component>
@@ -675,7 +563,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213681000" />
+    <option name="totallyTimeSpent" value="220734000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -687,10 +575,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="1440" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3297568" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24866879" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -702,7 +590,7 @@
       <window_info id="BPMN Editor" order="9" weight="0.3297568" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.44698796" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4950495" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.49638554" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -806,42 +694,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/maven/local_pro/org/activiti/activiti-engine/7.1.0.M6/activiti-engine-7.1.0.M6-sources.jar!/org/activiti/engine/impl/cfg/StandaloneProcessEngineConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/java/cn/com/yangshj/eureka/EurekaServerApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/application-dev.yml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/workflow-server/src/main/java/cn/com/yangshj/workflow/controller/ProcessManageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="116" column="26" selection-start-line="116" selection-start-column="26" selection-end-line="116" selection-end-column="26" />
-          <folding>
-            <element signature="method#startProcess#0;class#ProcessManageController#0" />
-            <element signature="docComment;method#queryTaskList#0;class#ProcessManageController#0" />
-            <element signature="method#queryTaskList#0;class#ProcessManageController#0" />
-            <element signature="method#completeTask#0;class#ProcessManageController#0" />
-            <element signature="docComment;method#queryAllProcessDefinition#0;class#ProcessManageController#0" />
-            <element signature="method#queryAllProcessDefinition#0;class#ProcessManageController#0" />
-            <element signature="method#deleteProcess#0;class#ProcessManageController#0" />
-            <element signature="method#findHistoryInfo#0;class#ProcessManageController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log-server/mvnw.cmd" />
-    <entry file="file://$PROJECT_DIR$/log-server/mvnw" />
     <entry file="file://$PROJECT_DIR$/log-server/src/main/resources/application-test.yml" />
     <entry file="file://$PROJECT_DIR$/log-server/src/main/resources/application-release.yml" />
     <entry file="file://$PROJECT_DIR$/log-server/src/main/resources/application-prod.yml" />
@@ -850,13 +702,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="7" selection-start-line="5" selection-start-column="5" selection-end-line="6" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -900,16 +745,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oauth-server/src/main/java/cn/com/yangshj/oauth/test/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -990,13 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alert-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="73" column="37" selection-start-line="73" selection-start-column="37" selection-end-line="73" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/bean/LogEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1028,13 +856,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/LiquibaseConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1049,37 +870,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alert-service/src/main/resources/application.yml">
+    <entry file="file://$PROJECT_DIR$/api-gateway/src/main/resources/application.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="435">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oauth-server/src/main/java/cn/com/yangshj/oauth/test/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/eureka-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="62">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/controller/TestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="30">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alert-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLogAop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLog.java">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="16386" column="4" selection-start-line="16386" selection-start-column="4" selection-end-line="16386" selection-end-column="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/log/IOpsLogService.java">
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/FileReadWriteUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        <state relative-caret-position="199">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1093,10 +952,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLogAop.java">
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/log/IOpsLogService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="59" column="82" selection-start-line="59" selection-start-column="82" selection-end-line="59" selection-end-column="82" />
+        <state relative-caret-position="135">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/config/OpsLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/SocketController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="27" lean-forward="true" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/resources/static/ws.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebSocketConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alert-service/src/main/java/cn/com/yangshj/alert/websocket/WebSocketServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
