@@ -36,4 +36,22 @@ public class TestController {
 
         return processDefinition.getId();
     }
+
+    @PostMapping("/te2")
+    public String test2() {
+
+        System.out.println("///////////////////////////////");
+
+        Deployment deployment = repositoryService.createDeployment()
+                .addClasspathResource("bpmn/second_test.bpmn")
+//                .addClasspathResource("bpmn/first_test.png")
+                .name("")
+                .deploy();
+
+        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery()
+                .deploymentId(deployment.getId()).singleResult();
+
+
+        return processDefinition.getId();
+    }
 }

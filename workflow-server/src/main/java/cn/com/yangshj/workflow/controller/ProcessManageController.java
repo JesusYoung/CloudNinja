@@ -28,7 +28,7 @@ public class ProcessManageController {
         // 获取RunTimeService
         RuntimeService runtimeService = processEngine.getRuntimeService();
         // 根据流程定义ID启动流程
-        ProcessInstance instance = runtimeService.startProcessInstanceByKey("myProcess_1");
+        ProcessInstance instance = runtimeService.startProcessInstanceByKey("myProcess_2");
 
         System.out.println("流程定义id=" + instance.getProcessDefinitionId());
         System.out.println("流程实例id=" + instance.getId());
