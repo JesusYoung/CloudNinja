@@ -5,21 +5,26 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import ch.ethz.ssh2.Connection;
 import ch.ethz.ssh2.Session;
 import ch.ethz.ssh2.StreamGobbler;
 import cn.com.yangshj.monitor.entity.MachineData;
-import cn.com.yangshj.monitor.webservice.test.*;
+import cn.com.yangshj.monitor.webservice.test.LoginResult;
+import cn.com.yangshj.monitor.webservice.test.ParamInfo;
+import cn.com.yangshj.monitor.webservice.test.ResourceInfo;
+import cn.com.yangshj.monitor.webservice.test.ResourceInstanceDetail;
+import cn.com.yangshj.monitor.webservice.test.Result;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
-import org.apache.ibatis.annotations.Param;
-import org.codehaus.jettison.json.JSONException;
 
 /**
  * Linux-CentOS系统采集

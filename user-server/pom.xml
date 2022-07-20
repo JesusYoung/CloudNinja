@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>cn.com.yangshj</groupId>
         <artifactId>CloudNinja</artifactId>
+        <groupId>cn.com.yangshj</groupId>
         <version>1.0.0.RELEASE</version>
+        <relativePath />
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>cn.com.yangshj.oauth</groupId>
-    <artifactId>oauth-server</artifactId>
-    <name>oauth-server</name>
+    <groupId>cn.com.yangshj.user</groupId>
+    <artifactId>user-server</artifactId>
+    <name>user-server</name>
     <description>Demo project for Spring Boot</description>
 
     <dependencies>
@@ -29,16 +30,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 

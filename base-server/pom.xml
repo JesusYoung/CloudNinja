@@ -5,13 +5,12 @@
     <parent>
         <groupId>cn.com.yangshj</groupId>
         <artifactId>CloudNinja</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0.RELEASE</version>
         <relativePath /> <!-- lookup parent from mapper -->
     </parent>
 
     <groupId>cn.com.yangshj.base</groupId>
     <artifactId>base-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <name>base-server</name>
     <description>Demo project for Spring Boot</description>
 
