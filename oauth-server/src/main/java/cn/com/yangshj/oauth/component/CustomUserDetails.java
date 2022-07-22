@@ -2,6 +2,7 @@ package cn.com.yangshj.oauth.component;
 
 import java.util.Collection;
 
+import cn.com.yangshj.base.entity.UserDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,6 +35,18 @@ public class CustomUserDetails implements UserDetails {
      * 权限数据
      */
     private Collection<SimpleGrantedAuthority> authorities;
+
+
+    public CustomUserDetails(UserDto userDto) {
+        this.setId(userDto.getId());
+        this.setUsername(userDto.getUsername());
+        this.setEmail(userDto.getEmail());
+        this.setMobile(userDto.getMobile());
+        this.setPassword(userDto.getPassword());
+        this.setClientId("");
+//        this.setEnabled(Integer.valueOf(1).equals(userDto.getStatus));
+        this.setEnabled(true);
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

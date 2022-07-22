@@ -14,14 +14,19 @@ public class Controller {
 
     @GetMapping("/getA")
     public Map<String, Object> getaaa() {
-
-
         Map<String, Object> map = new HashMap<>();
         map.put("aaa", 111);
-        map.put("bbb", "asd");
+        map.put("bbb", "aaa");
+        System.out.println("aaaaaaaaaaaa");
+        return map;
+    }
 
-//        Log.info("aaa: 111-------------");
-        System.out.println("aasdsdsdsds");
+    @GetMapping("/getB")
+    public Map<String, Object> getbbb() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("aaa", 222);
+        map.put("bbb", "bbb");
+        System.out.println("bbbbbbbbbbbb");
         return map;
     }
 }

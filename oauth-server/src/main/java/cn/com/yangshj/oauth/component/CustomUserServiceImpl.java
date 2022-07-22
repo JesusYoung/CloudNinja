@@ -27,15 +27,16 @@ public class CustomUserServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 
-        // ...
+        // ...rpc远程调用user服务，获取user信息
 
         CustomUserDetails userDetails = new CustomUserDetails();
 
-        userDetails.setUsername("admin");
-        userDetails.setPassword(new BCryptPasswordEncoder().encode("admin"));
+        userDetails.setUsername("user");
+        userDetails.setPassword(new BCryptPasswordEncoder().encode("123123"));
         userDetails.setEnabled(true);
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        authorities.add(new SimpleGrantedAuthority("ROLE_ROOT"));
         userDetails.setAuthorities(authorities);
 
         if (!userDetails.isEnabled()) {

@@ -74,7 +74,7 @@
         <dependency>
             <groupId>cn.com.yangshj.base</groupId>
             <artifactId>base-server</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>1.0.0.RELEASE</version>
         </dependency>
 
         <!-- ssh连接工具 -->
