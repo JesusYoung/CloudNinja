@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
  * @author yangshj
  * @since 2022/7/19 3:23 下午
  */
-@Service
+//@Service
 public class CustomUserServiceImpl implements UserDetailsService {
 
     @Override
