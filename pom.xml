@@ -26,6 +26,7 @@
         <module>alert-service</module>
         <module>workflow-server</module>
         <module>user-server</module>
+        <module>rbac-service</module>
     </modules>
 
     <properties>

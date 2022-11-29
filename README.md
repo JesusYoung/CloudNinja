@@ -10,3 +10,4 @@ TestDemo
 - alert-server: 7600
 - monitor-server: 8100
 - workflow-server: 8120
+- rbac-service: 8300
