@@ -1,0 +1,13 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!-- 初始化表结构 -->
+    <changeSet id="init_table" author="yangshj">
+        <sqlFile path="liquibase/init/init_table.sql"/>
+    </changeSet>
+
+    <includeAll path="liquibase/changelog/" relativeToChangelogFile="false"/>
+</databaseChangeLog>

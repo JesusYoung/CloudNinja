@@ -1,0 +1,1 @@
+alter table user_info add column organization_id varchar(36) null comment '组织结构ID' after email;
