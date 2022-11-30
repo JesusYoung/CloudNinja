@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- *
+ * Liquibase配置类
  *
  * @author yangshj
  * @since 2022/11/29 20:48
