@@ -7,4 +7,23 @@
         select *
         from test_table
     </select>
+
+    <select id="findById" resultType="cn.com.yangshj.monitor.test.TestTableData">
+        select * from test_table where id = #{id}
+    </select>
+
+    <select id="findMaxVersionByParentId" resultType="cn.com.yangshj.monitor.test.TestTableData">
+        select * from test_table t
+        where version = (select max(tt.version)
+                              from test_table tt
+                              where tt.parentId = #{parentId})
+          and t.parentId = #{parentId}
+    </select>
+
+    <insert id="save" parameterType="cn.com.yangshj.monitor.test.TestTableData">
+        insert into test_table (id, name, parentId, version, create_by)
+        values (#{testTableData.id, jdbcType=BIGINT}, #{testTableData.name, jdbcType=VARCHAR},
+                #{testTableData.parentId, jdbcType=BIGINT}, #{testTableData.version, jdbcType=BIGINT},
+                #{testTableData.createBy, jdbcType=BIGINT})
+    </insert>
 </mapper>

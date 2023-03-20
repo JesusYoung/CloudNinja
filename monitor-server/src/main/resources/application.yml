@@ -13,7 +13,11 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
-
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 8
+    password:
 
 eureka:
   client:
@@ -38,3 +42,4 @@ eureka:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: cn.com.yangshj.monitor.test
+

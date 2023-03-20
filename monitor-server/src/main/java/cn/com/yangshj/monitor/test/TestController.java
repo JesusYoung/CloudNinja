@@ -24,4 +24,9 @@ public class TestController {
     public List<TestTableData> test() {
         return this.testService.queryList();
     }
+
+    @GetMapping("/test2")
+    public void test2() {
+        this.testService.test();
+    }
 }

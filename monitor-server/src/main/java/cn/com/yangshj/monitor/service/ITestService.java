@@ -10,4 +10,8 @@ import cn.com.yangshj.monitor.test.TestTableData;
 public interface ITestService {
 
     List<TestTableData> queryList();
+
+
+
+    void test();
 }
