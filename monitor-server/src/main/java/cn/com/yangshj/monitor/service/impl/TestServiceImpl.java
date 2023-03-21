@@ -3,6 +3,7 @@ package cn.com.yangshj.monitor.service.impl;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import cn.com.yangshj.monitor.mapper.TestMapper;
 import cn.com.yangshj.monitor.service.ITestService;
@@ -46,9 +47,13 @@ public class TestServiceImpl implements ITestService {
 //        new Thread(() -> handleTest(id)).start();
 //        new Thread(() -> handleTest(id)).start();
 //
-        for (int i = 0; i < 1000; i++) {
-            new Thread(() -> handleTest(id)).start();
-        }
+//        for (int i = 0; i < 1000; i++) {
+//            new Thread(() -> handleTest(id)).start();
+//        }
+
+
+        new Thread(() -> testGetLock(id, -2)).start();
+        new Thread(() -> testGetLock(id, 10)).start();
     }
 
 
@@ -90,5 +95,43 @@ public class TestServiceImpl implements ITestService {
 
     }
 
+    private void testGetLock(String key, int num) {
+        RLock rLock = this.redisson.getLock(key);
+        try {
+            rLock.lock(1, TimeUnit.MINUTES);
+
+            if (num < 0) {
+                System.out.println("小于0时，是否有锁：" + rLock.isLocked());
+                System.out.println("小于0时，是否当前线程锁：" + rLock.isHeldByCurrentThread());
+                rLock.unlock();
+                System.out.println("小于0时解锁后，是否有锁：" + rLock.isLocked());
+                System.out.println("小于0时解锁后，是否当前线程锁：" + rLock.isHeldByCurrentThread());
+                throw new RuntimeException("aaaaa");
+            }
+
+            Thread.sleep(1000);
+
+        } catch (Exception e) {
+            if (rLock.isLocked()) {
+                System.out.println("捕获异常时持有锁");
+                System.out.println("捕获异常时持是否当前线程锁： " + rLock.isHeldByCurrentThread());
+                rLock.unlock();
+            } else {
+                System.out.println("捕获异常时持有锁");
+                System.out.println("捕获异常时持是否当前线程锁： " + rLock.isHeldByCurrentThread());
+            }
+            System.out.println("e: " + e.getMessage());
+            System.out.println("e: " + e.toString());
+        } finally {
+            if (rLock.isLocked()) {
+                System.out.println("finally时有锁");
+                System.out.println("finally时持是否当前线程锁： " + rLock.isHeldByCurrentThread());
+                rLock.unlock();
+            } else {
+                System.out.println("finally时有锁");
+                System.out.println("finally时是否当前线程锁： " + rLock.isHeldByCurrentThread());
+            }
+        }
+    }
 
 }
