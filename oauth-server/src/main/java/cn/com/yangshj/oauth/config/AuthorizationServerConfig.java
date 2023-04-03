@@ -3,16 +3,38 @@ package cn.com.yangshj.oauth.config;
 
 import javax.annotation.Resource;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.com.yangshj.oauth.component.CustomUserServiceImpl;
+import jdk.internal.dynalink.linker.LinkerServices;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.CompositeTokenGranter;
+import org.springframework.security.oauth2.provider.OAuth2RequestFactory;
+import org.springframework.security.oauth2.provider.TokenGranter;
+import org.springframework.security.oauth2.provider.TokenRequest;
+import org.springframework.security.oauth2.provider.client.ClientCredentialsTokenGranter;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
+import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.code.AuthorizationCodeTokenGranter;
+import org.springframework.security.oauth2.provider.code.RandomValueAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.implicit.ImplicitTokenGranter;
+import org.springframework.security.oauth2.provider.password.ResourceOwnerPasswordTokenGranter;
+import org.springframework.security.oauth2.provider.refresh.RefreshTokenGranter;
+import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestFactory;
+import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.util.ObjectUtils;
 
 /**
  * 授权服务配置
@@ -24,20 +46,20 @@ import org.springframework.security.oauth2.provider.client.JdbcClientDetailsServ
 @EnableAuthorizationServer // 开启授权服务器
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-////    @Resource
-////    private DataSource dataSource;
-//
-//    @Resource
-//    private TokenStore tokenStore;
+    @Resource
+    private TokenStore redisTokenStore;
     @Resource
     private AuthenticationManager authenticationManager;
-//    @Resource
-//    private AuthorizationServerTokenServices tokenService;
-//    @Resource
-//    private RandomValueAuthorizationCodeServices authorizationCodeServices;
+    @Resource
+    private RandomValueAuthorizationCodeServices authorizationCodeServices;
 
     @Resource(name = "jdbcClientDetailsService")
     private JdbcClientDetailsService jdbcClientDetailsService;
+    @Resource
+    private CustomUserServiceImpl customUserService;
+//    @Resource
+//    private AuthorizationServerTokenServices tokenServices;
+
 
     /**
      * ClientDetailsServiceConfigurer 为客户端配置类
@@ -106,20 +128,18 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
                 // 支持 GET、POST 请求
 //                .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
-//                .tokenStore(tokenStore)
+                .tokenStore(redisTokenStore)
 //                .tokenGranter(this.tokenGranter())
-//                .authorizationCodeServices(authorizationCodeServices)
+                .authorizationCodeServices(authorizationCodeServices)
 //                .exceptionTranslator(webResponseExceptionTranslator)
 
                 // 使用了密码授权模式，需要配置 AuthenticationManager 的 bean
                 // 不配置会报错：Unsupported grant type: password
-                .authenticationManager(authenticationManager);
+                .authenticationManager(authenticationManager)
+                .userDetailsService(customUserService)
+        ;
     }
 
-
-//    /**
-//     * 授权模式
-//     */
 //    @Bean
 //    public TokenGranter tokenGranter() {
 //        return new TokenGranter() {
@@ -139,21 +159,23 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //     * 所有授权模式：默认的5种模式 + 自定义的模式
 //     */
 //    private List<TokenGranter> getAllTokenGranters() {
-//        OAuth2RequestFactory requestFactory = this.requestFactory();
+//        OAuth2RequestFactory requestFactory = requestFactory();
 //        // 获取默认的授权模式
-//        List<TokenGranter> tokenGranters = this.getDefaultTokenGranters(tokenService, authorizationCodeServices,
+//        List<TokenGranter> tokenGranters = getDefaultTokenGranters(tokenServices, authorizationCodeServices,
 //                requestFactory);
 //        if (!ObjectUtils.isEmpty(authenticationManager)) {
 //            // 短信验证模式
-//
 //            // 验证码模式（扩展用户名密码）
-//
 //        }
 //        return tokenGranters;
 //    }
 //
 //    /**
 //     * 默认的授权模式
+//     *
+//     * @param tokenServices tokenServices
+//     * @param authorizationCodeServices authorizationCodeServices
+//     * @param requestFactory requestFactory
 //     */
 //    private List<TokenGranter> getDefaultTokenGranters(AuthorizationServerTokenServices tokenServices,
 //                                                       AuthorizationCodeServices authorizationCodeServices,
@@ -164,7 +186,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //                jdbcClientDetailsService, requestFactory));
 //        // 刷新令牌
 //        tokenGranters.add(new RefreshTokenGranter(tokenServices, jdbcClientDetailsService, requestFactory));
-//        // 隐式授权
+//        // 隐式模式
 //        tokenGranters.add(new ImplicitTokenGranter(tokenServices, jdbcClientDetailsService, requestFactory));
 //        // 客户端
 //        tokenGranters.add(new ClientCredentialsTokenGranter(tokenServices, jdbcClientDetailsService, requestFactory));
@@ -180,16 +202,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //     * OAuth2RequestFactory的默认实现，它初始化参数映射中的字段，
 //     * 验证授权类型(grant_type)和范围(scope)，并使用客户端的默认值填充范围(scope)（如果缺少这些值）。
 //     */
-//    @Bean
 //    public OAuth2RequestFactory requestFactory() {
 //        return new DefaultOAuth2RequestFactory(jdbcClientDetailsService);
 //    }
-//
-////    /**
-////     * 使用 JDBC 数据库方式来保存用户的授权批准记录
-////     */
-////    @Bean
-////    public JdbcApprovalStore approvalStore() {
-////        return new JdbcApprovalStore(dataSource);
-////    }
 }

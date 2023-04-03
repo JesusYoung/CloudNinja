@@ -22,3 +22,8 @@ spring:
 #    pathmatch:
 #      matching-strategy: ant_path_matcher
 #    static-path-pattern: /**
+  redis:
+    host: localhost
+    port: 6379
+    database: 5
+    password:

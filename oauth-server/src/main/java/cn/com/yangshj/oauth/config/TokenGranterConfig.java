@@ -7,9 +7,14 @@ import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
+import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
 /**
  * 将部分@Bean的配置提取执行单独的配置类中@Configuration
@@ -25,8 +30,14 @@ public class TokenGranterConfig {
     private DataSource dataSource;
 //    @Resource
 //    private CustomUserServiceImpl customUserService;
-////    @Resource
-////    private RedisConnectionFactory redisConnectionFactory;
+    @Resource
+    private RedisConnectionFactory redisConnectionFactory;
+
+
+    @Bean
+    public AuthorizationCodeServices authorizationCodeServices() {
+        return new InMemoryAuthorizationCodeServices();
+    }
 //
 //    @Bean
 //    @Primary
@@ -102,6 +113,11 @@ public class TokenGranterConfig {
 ////    public TokenStore tokenStore() {
 ////        return new JdbcTokenStore();
 ////    }
+
+    @Bean
+    public TokenStore redisTokenStore() {
+        return new RedisTokenStore(redisConnectionFactory);
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
