@@ -1,2 +1,0 @@
-insert into user_info(id, name, phone_number, email, create_by, create_time, update_by, update_time, is_deleted)
-values ('1', "admin", '15311223344', 'yangshj@163.com', null, 1656656239579, null, 1656656239579, 0);

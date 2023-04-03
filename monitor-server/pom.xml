@@ -7,7 +7,7 @@
         <groupId>cn.com.yangshj</groupId>
         <artifactId>CloudNinja</artifactId>
         <version>1.0.0.RELEASE</version>
-        <relativePath /> <!-- lookup parent from mapper -->
+<!--        <relativePath /> &lt;!&ndash; lookup parent from mapper &ndash;&gt;-->
     </parent>
     <groupId>cn.com.yangshj.monitor</groupId>
     <artifactId>monitor-server</artifactId>
@@ -63,13 +63,13 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.21</version>
+            <version>${mysql.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.spring.boot</groupId>-->
+<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--            <version>${mybatis-spring-boot-starter.version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>cn.com.yangshj.base</groupId>

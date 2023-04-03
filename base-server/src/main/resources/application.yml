@@ -4,10 +4,11 @@ server:
 spring:
   profiles:
     active: @profileActive@
-
   application:
     name: base-server
-
+#  mvc:
+#    pathmatch:
+#      matching-strategy: ant_path_matcher
 
 eureka:
   client:

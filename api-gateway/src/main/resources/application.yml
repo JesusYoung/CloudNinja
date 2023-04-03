@@ -1,13 +1,16 @@
 server:
-  port: 7901
+  port: 7500
 
 spring:
   profiles:
     active: @profileActive@
-
   application:
     name: api-gateway
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:7500/oauth/rsa/publicKey
   cloud:
     gateway:
       discovery:
@@ -33,7 +36,12 @@ spring:
             - Path=/workflow/**
           filters:
             - StripPrefix=1
-
+        - id: rbac-service
+          uri: lb://rbac-service
+          predicates:
+            - Path=/rbac/**
+          filters:
+            - StripPrefix=1
 
 
 eureka:
