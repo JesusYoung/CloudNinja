@@ -13,6 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.InMemoryAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
@@ -89,6 +90,12 @@ public class TokenGranterConfig {
     @Primary // 指定使用自定义的 Bean, 否则会被 Proxy 覆盖
     public JdbcClientDetailsService clientDetails() {
         return new JdbcClientDetailsService(dataSource);
+    }
+
+    @Bean("jdbcAuthorizationCodeServices")
+    @Primary
+    public JdbcAuthorizationCodeServices jdbcAuthorizationCodeServices() {
+        return new JdbcAuthorizationCodeServices(dataSource);
     }
 
 //    /**

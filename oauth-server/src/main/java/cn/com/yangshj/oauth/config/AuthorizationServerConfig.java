@@ -3,38 +3,19 @@ package cn.com.yangshj.oauth.config;
 
 import javax.annotation.Resource;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import cn.com.yangshj.oauth.component.CustomUserServiceImpl;
-import jdk.internal.dynalink.linker.LinkerServices;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.CompositeTokenGranter;
-import org.springframework.security.oauth2.provider.OAuth2RequestFactory;
-import org.springframework.security.oauth2.provider.TokenGranter;
-import org.springframework.security.oauth2.provider.TokenRequest;
-import org.springframework.security.oauth2.provider.client.ClientCredentialsTokenGranter;
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
-import org.springframework.security.oauth2.provider.code.AuthorizationCodeServices;
-import org.springframework.security.oauth2.provider.code.AuthorizationCodeTokenGranter;
+import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.RandomValueAuthorizationCodeServices;
-import org.springframework.security.oauth2.provider.implicit.ImplicitTokenGranter;
-import org.springframework.security.oauth2.provider.password.ResourceOwnerPasswordTokenGranter;
-import org.springframework.security.oauth2.provider.refresh.RefreshTokenGranter;
-import org.springframework.security.oauth2.provider.request.DefaultOAuth2RequestFactory;
-import org.springframework.security.oauth2.provider.token.AuthorizationServerTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.util.ObjectUtils;
 
 /**
  * 授权服务配置
@@ -55,6 +36,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Resource(name = "jdbcClientDetailsService")
     private JdbcClientDetailsService jdbcClientDetailsService;
+    @Resource(name = "jdbcAuthorizationCodeServices")
+    private JdbcAuthorizationCodeServices jdbcAuthorizationCodeServices;
     @Resource
     private CustomUserServiceImpl customUserService;
 //    @Resource
@@ -100,7 +83,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 // 允许表单认证
                 // 如果配置，且url中有client_id和client_secret的，则走 ClientCredentialsTokenEndpointFilter
                 // 如果没有配置，但是url中没有client_id和client_secret的，走basic认证保护
-//                .allowFormAuthenticationForClients()
+                .allowFormAuthenticationForClients()
 
                 // 开启 /oauth/token_key
                 // 打开验证 Token 的访问权限
@@ -127,10 +110,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 //                .approvalStore(this.approvalStore())
 
                 // 支持 GET、POST 请求
-//                .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
+                .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 .tokenStore(redisTokenStore)
 //                .tokenGranter(this.tokenGranter())
-                .authorizationCodeServices(authorizationCodeServices)
+//                .authorizationCodeServices(authorizationCodeServices)
+                .authorizationCodeServices(jdbcAuthorizationCodeServices)
 //                .exceptionTranslator(webResponseExceptionTranslator)
 
                 // 使用了密码授权模式，需要配置 AuthenticationManager 的 bean
