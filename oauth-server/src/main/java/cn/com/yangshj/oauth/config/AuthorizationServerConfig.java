@@ -113,7 +113,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 .tokenStore(redisTokenStore)
 //                .tokenGranter(this.tokenGranter())
+
+                // 默认使用内存存储
 //                .authorizationCodeServices(authorizationCodeServices)
+                // 配置 JDBC 数据库方式存储授权码
                 .authorizationCodeServices(jdbcAuthorizationCodeServices)
 //                .exceptionTranslator(webResponseExceptionTranslator)
 
