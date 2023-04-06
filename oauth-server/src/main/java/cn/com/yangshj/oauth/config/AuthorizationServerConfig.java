@@ -3,6 +3,8 @@ package cn.com.yangshj.oauth.config;
 
 import javax.annotation.Resource;
 
+import java.util.Arrays;
+
 import cn.com.yangshj.oauth.component.CustomUserServiceImpl;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,7 +17,10 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.code.JdbcAuthorizationCodeServices;
 import org.springframework.security.oauth2.provider.code.RandomValueAuthorizationCodeServices;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 
 /**
  * 授权服务配置
@@ -42,6 +47,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     private CustomUserServiceImpl customUserService;
 //    @Resource
 //    private AuthorizationServerTokenServices tokenServices;
+
+    @Resource
+    private TokenEnhancer tokenEnhancer;
+    @Resource
+    private JwtAccessTokenConverter jwtAccessTokenConverter;
+
 
 
     /**
@@ -105,6 +116,10 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
      */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+        tokenEnhancerChain.setTokenEnhancers(Arrays.asList(tokenEnhancer, jwtAccessTokenConverter));
+
+
         endpoints
 //                // 使用 jdbc 数据库方式存储用户的授权批准记录
 //                .approvalStore(this.approvalStore())
@@ -113,6 +128,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 .tokenStore(redisTokenStore)
 //                .tokenGranter(this.tokenGranter())
+
+                // JWT 增强 Token
+                .tokenEnhancer(tokenEnhancerChain)
 
                 // 默认使用内存存储
 //                .authorizationCodeServices(authorizationCodeServices)

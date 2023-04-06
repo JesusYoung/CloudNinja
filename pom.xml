@@ -26,7 +26,6 @@
         <module>workflow-server</module>
         <module>user-server</module>
         <module>rbac-service</module>
-        <module>oauth-service</module>
     </modules>
 
     <properties>
@@ -152,21 +151,23 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
+                <filtering>false</filtering>
                 <excludes>
                     <exclude>application-dev.yml</exclude>
                     <exclude>application-test.yml</exclude>
                     <exclude>application-prod.yml</exclude>
                     <exclude>application-release.yml</exclude>
                     <exclude>application.yml</exclude>
+                    <exclude>**/*.jks</exclude>
                 </excludes>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
+                <filtering>false</filtering>
                 <includes>
                     <include>application-${profileActive}.yml</include>
                     <include>application.yml</include>
+                    <include>**/*.jks</include>
                 </includes>
             </resource>
         </resources>

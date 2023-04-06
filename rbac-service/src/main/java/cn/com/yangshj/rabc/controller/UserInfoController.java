@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import cn.com.yangshj.base.entity.AuthUser;
 import cn.com.yangshj.base.entity.CommonResult;
 import cn.com.yangshj.rabc.dto.UserInfoDto;
-import cn.com.yangshj.rabc.service.IUserService;
+import cn.com.yangshj.rabc.service.IUserInfoService;
 import cn.com.yangshj.rabc.vo.UserInfoVo;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,27 +24,27 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @RestController
 @RequestMapping("/api/v1/user")
-public class UserController {
+public class UserInfoController {
 
     @Resource
-    private IUserService userService;
+    private IUserInfoService userInfoService;
 
 
     @ApiOperation("获取用户信息")
     @GetMapping("/{id}")
     public CommonResult<UserInfoDto> findById(@ApiIgnore @PathVariable String id) {
-        return CommonResult.success(this.userService.findById(id));
+        return CommonResult.success(this.userInfoService.findById(id));
     }
 
     @ApiOperation("新增用户")
     @PostMapping
     public CommonResult<UserInfoDto> add(@RequestBody UserInfoVo userVo) {
-        return CommonResult.success(this.userService.add(userVo));
+        return CommonResult.success(this.userInfoService.add(userVo));
     }
 
     @ApiOperation("根据用户名获取用户信息")
     @GetMapping("/loadByUsername")
     public CommonResult<AuthUser> loadByUsername(String username) {
-        return CommonResult.success(this.userService.loadByUsername(username));
+        return CommonResult.success(this.userInfoService.loadByUsername(username));
     }
 }

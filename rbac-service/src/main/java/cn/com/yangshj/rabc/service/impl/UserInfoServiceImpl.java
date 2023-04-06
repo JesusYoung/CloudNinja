@@ -7,7 +7,7 @@ import cn.com.yangshj.base.entity.AuthUser;
 import cn.com.yangshj.rabc.dto.UserInfoDto;
 import cn.com.yangshj.rabc.entity.UserInfo;
 import cn.com.yangshj.rabc.mapper.UserInfoMapper;
-import cn.com.yangshj.rabc.service.IUserService;
+import cn.com.yangshj.rabc.service.IUserInfoService;
 import cn.com.yangshj.rabc.vo.UserInfoVo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.IdWorker;
@@ -24,7 +24,7 @@ import org.springframework.util.ObjectUtils;
  * @since 2023/3/24 14:57
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements IUserService {
+public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements IUserInfoService {
 
 
     @Override

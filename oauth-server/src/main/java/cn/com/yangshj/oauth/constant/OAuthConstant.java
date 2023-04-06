@@ -7,6 +7,9 @@ package cn.com.yangshj.oauth.constant;
  * @since 2023/3/24 13:50
  */
 public class OAuthConstant {
+
+    private OAuthConstant() {}
+
     /**
      * 存储 JWT 密钥对的文件路径
      */

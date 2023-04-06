@@ -12,7 +12,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author yangshj
  * @since 2023/3/24 14:55
  */
-public interface IUserService extends IService<UserInfo> {
+public interface IUserInfoService extends IService<UserInfo> {
 
     UserInfoDto findById(String id);
 
