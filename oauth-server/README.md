@@ -13,3 +13,8 @@ keytool -genkey -alias cloud_ninja -keyalg RSA -keysize 1024 -keystore cloud_nin
 ```shell
 keytool -list -rfc --keystore cloud_ninja.jks | openssl x509 -inform pem -pubkey
 ```
+
+
+数据存储
+- 客户端信息：jdbc数据库
+- token存储：redis

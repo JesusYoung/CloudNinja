@@ -1,3 +1,15 @@
+create table if not exists `oauth_access_token`
+(
+    token_id          varchar(256) null,
+    token             blob         null,
+    authentication_id varchar(256) not null
+        primary key,
+    user_name         varchar(256) null,
+    client_id         varchar(256) null,
+    authentication    blob         null,
+    refresh_token     varchar(256) null
+) comment '访问令牌表' collate = utf8_bin;
+
 create table if not exists `oauth_approvals`
 (
     userId         varchar(256) null,
@@ -6,7 +18,7 @@ create table if not exists `oauth_approvals`
     status         varchar(10)  null,
     expiresAt      timestamp    null,
     lastModifiedAt timestamp    null
-) comment '授权批准状态表' collate = utf8_bin;
+) comment '授权批准记录表' collate = utf8_bin;
 
 create table if not exists `oauth_client_details`
 (
@@ -24,8 +36,25 @@ create table if not exists `oauth_client_details`
     autoapprove             varchar(255)  null
 ) comment 'OAuth客户端表' collate = utf8_bin;
 
+create table if not exists `oauth_client_token`
+(
+    token_id          varchar(256) null,
+    token             blob         null,
+    authentication_id varchar(256) not null
+        primary key,
+    user_name         varchar(256) null,
+    client_id         varchar(256) null
+) comment '客户端模式token存储' collate = utf8_bin;
+
 create table if not exists `oauth_code`
 (
     code           varchar(256) null,
     authentication blob         null
 ) comment '授权码表' collate = utf8_bin;
+
+create table if not exists `oauth_refresh_token`
+(
+    token_id       varchar(256) null,
+    token          blob         null,
+    authentication blob         null
+) comment '刷新令牌' collate = utf8_bin;
