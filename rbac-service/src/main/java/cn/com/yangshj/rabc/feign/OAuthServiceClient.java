@@ -21,4 +21,11 @@ public interface OAuthServiceClient {
                                @RequestParam("password") String password,
                                @RequestParam("scope") String scope,
                                @RequestHeader("Authorization") String clientCredentials);
+
+    @PostMapping("/oauth/sms")
+    OAuth2AccessTokenDTO smsLogin(@RequestParam("grant_type") String grantType,
+                                  @RequestParam("phoneNumber") String phoneNumber,
+                                  @RequestParam("sms") String sms,
+                                  @RequestParam("scope") String scope,
+                                  @RequestHeader("Authorization") String clientCredentials);
 }

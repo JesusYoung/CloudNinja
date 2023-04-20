@@ -18,5 +18,6 @@ public interface IUserInfoService extends IService<UserInfo> {
 
     UserInfoDto add(UserInfoVo vo);
 
-    AuthUser loadByUsername(String name);
+    AuthUser loadByUsername(String username);
+    AuthUser loadByPhoneNumber(String phoneNumber);
 }

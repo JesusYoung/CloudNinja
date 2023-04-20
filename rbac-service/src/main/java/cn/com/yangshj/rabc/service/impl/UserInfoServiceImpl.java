@@ -39,6 +39,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     @Override
     public UserInfoDto add(UserInfoVo vo) {
         // TODO 校验手机号码、邮箱格式
+        // TODO 校验手机号唯一
 
         UserInfo userInfo = new UserInfo();
         BeanUtils.copyProperties(vo, userInfo);
@@ -52,11 +53,30 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
     }
 
     @Override
-    public AuthUser loadByUsername(String name) {
+    public AuthUser loadByUsername(String username) {
         AuthUser authUser = new AuthUser();
 
         UserInfo userQuery = new UserInfo();
-        userQuery.setName(name);
+        userQuery.setName(username);
+        UserInfo userInfo = getOne(new QueryWrapper<>(userQuery));
+        if (ObjectUtils.isEmpty(userInfo)) {
+            throw new ApiException("用户不存在");
+        }
+        BeanUtils.copyProperties(userInfo, authUser);
+//        if (userDto.getRoleList() != null) {
+//            authUser.setRoleList(userDto.getRoleList().stream()
+//                    .map(r -> r.getId() + "_" + r.getName())
+//                    .collect(Collectors.toList()));
+//        }
+        return authUser;
+    }
+
+    @Override
+    public AuthUser loadByPhoneNumber(String phoneNumber) {
+        AuthUser authUser = new AuthUser();
+
+        UserInfo userQuery = new UserInfo();
+        userQuery.setPhoneNumber(phoneNumber);
         UserInfo userInfo = getOne(new QueryWrapper<>(userQuery));
         if (ObjectUtils.isEmpty(userInfo)) {
             throw new ApiException("用户不存在");

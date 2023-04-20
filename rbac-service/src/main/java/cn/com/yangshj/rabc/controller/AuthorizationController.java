@@ -11,6 +11,7 @@ import cn.com.yangshj.base.dto.OAuth2TokenDTO;
 import cn.com.yangshj.base.entity.CommonResult;
 import cn.com.yangshj.rabc.feign.OAuthServiceClient;
 import cn.com.yangshj.rabc.vo.LoginVO;
+import cn.com.yangshj.rabc.vo.SmsLoginVo;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,6 +42,18 @@ public class AuthorizationController {
                 StandardCharsets.UTF_8))));
         OAuth2AccessTokenDTO auth2AccessTokenDTO = this.oAuthServiceClient.login("password", vo.getUsername(),
                 vo.getPassword(), "all", clientCredentials);
+        return CommonResult.success(this.convertToAuthTokenDTO(auth2AccessTokenDTO));
+    }
+
+    @ApiOperation("短信验证码方式登录")
+    @PostMapping("/login/sms")
+    public CommonResult<OAuth2TokenDTO> smsLogin(@Valid @RequestBody SmsLoginVo vo) {
+        log.info("Invoke[grant_type=password]");
+        String basicClient = "cloud_ninja_client:cloud_ninja";
+        String clientCredentials = "Basic ".concat(new String(Base64.getEncoder().encode(basicClient.getBytes(
+                StandardCharsets.UTF_8))));
+        OAuth2AccessTokenDTO auth2AccessTokenDTO = this.oAuthServiceClient.smsLogin("sms_code",
+                vo.getPhoneNumber(), vo.getSms(), "all", clientCredentials);
         return CommonResult.success(this.convertToAuthTokenDTO(auth2AccessTokenDTO));
     }
 

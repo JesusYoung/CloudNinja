@@ -47,4 +47,10 @@ public class UserInfoController {
     public CommonResult<AuthUser> loadByUsername(String username) {
         return CommonResult.success(this.userInfoService.loadByUsername(username));
     }
+
+    @ApiOperation("根据手机号获取用户信息")
+    @GetMapping("/loadByPhoneNumber")
+    public CommonResult<AuthUser> loadByPhoneNumber(String phoneNumber) {
+        return CommonResult.success(this.userInfoService.loadByPhoneNumber(phoneNumber));
+    }
 }

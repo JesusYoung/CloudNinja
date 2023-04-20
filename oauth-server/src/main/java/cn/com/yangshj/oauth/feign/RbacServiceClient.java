@@ -17,4 +17,7 @@ public interface RbacServiceClient {
 
     @GetMapping("/api/v1/user/loadByUsername")
     CommonResult<AuthUser> loadByUsername(@RequestParam String username);
+
+    @GetMapping("/api/v1/user/loadByPhoneNumber")
+    CommonResult<AuthUser> loadByPhoneNumber(@RequestParam String phoneNumber);
 }

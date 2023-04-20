@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import cn.com.yangshj.oauth.component.CustomUserServiceImpl;
+import cn.com.yangshj.oauth.custom.sms.SmsCodeTokenGranter;
+import cn.com.yangshj.oauth.custom.sms.SmsUserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -63,6 +65,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Resource
     private AuthorizationServerTokenServices tokenServices;
 
+
+    @Resource
+    private SmsUserDetailsServiceImpl smsUserDetailsService;
 
 
     /**
@@ -178,6 +183,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         if (!ObjectUtils.isEmpty(authenticationManager)) {
             // TODO 待实现
             // 短信验证模式
+            tokenGranters.add(new SmsCodeTokenGranter(tokenServices, jdbcClientDetailsService, smsUserDetailsService,
+                    requestFactory));
             // 邮件验证模式
             // 图片验证码模式（扩展用户名密码）
         }

@@ -11,4 +11,6 @@ import cn.com.yangshj.base.entity.AuthUser;
 public interface IUserService {
 
     AuthUser getAuthUserDetailByName(String userName);
+
+    AuthUser getAuthUserDetailByPhoneNumber(String phoneNumber);
 }

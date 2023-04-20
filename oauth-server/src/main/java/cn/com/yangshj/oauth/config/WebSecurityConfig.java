@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 import cn.com.yangshj.oauth.component.CustomUserServiceImpl;
 import cn.com.yangshj.oauth.config.handler.AuthFailureHandler;
 import cn.com.yangshj.oauth.config.handler.AuthSuccessHandler;
+import cn.com.yangshj.oauth.custom.sms.SmsCodeAuthenticationFilter;
+import cn.com.yangshj.oauth.custom.sms.SmsCodeAuthenticationSecurityConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,18 +28,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-//    @Resource
-//    private DataSource dataSource;
-//
-
     @Resource
     private AuthSuccessHandler authSuccessHandler;
     @Resource
     private AuthFailureHandler authFailureHandler;
 
+    @Resource
+    private SmsCodeAuthenticationSecurityConfig smsCodeAuthenticationSecurityConfig;
 
     @Resource
     private CustomUserServiceImpl customUserService;
+
 
     private final String[] antPatterns = new String[] {
             "static/oauth/login",
@@ -65,7 +66,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.apply(smsCodeAuthenticationSecurityConfig)
+                .and()
+                .authorizeRequests()
                 .antMatchers(antPatterns).permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -76,6 +79,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .successHandler(authSuccessHandler)
                 .failureHandler(authFailureHandler)
                 .and()
+                // 关闭 CSRF 跨域
+                .csrf().disable()
                 .httpBasic()
         ;
 

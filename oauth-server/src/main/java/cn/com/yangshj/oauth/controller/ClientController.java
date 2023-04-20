@@ -1,12 +1,5 @@
 package cn.com.yangshj.oauth.controller;
 
-/**
- * 客户端接口
- *
- * @author yangshj
- * @since 2023/3/30 15:37
- */
-
 import javax.annotation.Resource;
 
 import java.util.List;
@@ -21,6 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 客户端接口
+ *
+ * @author yangshj
+ * @since 2023/3/30 15:37
+ */
 @RestController
 @RequestMapping("/api/v1/client")
 public class ClientController {
