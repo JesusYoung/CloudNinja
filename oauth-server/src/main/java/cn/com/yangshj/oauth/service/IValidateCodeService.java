@@ -8,5 +8,5 @@ package cn.com.yangshj.oauth.service;
  */
 public interface IValidateCodeService {
 
-
+    void getSmsVerificationCode(String phoneNumber);
 }

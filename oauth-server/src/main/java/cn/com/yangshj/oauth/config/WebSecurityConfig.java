@@ -42,10 +42,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] antPatterns = new String[] {
             "static/oauth/login",
-        "/oauth/**",
-        "/v3/api-docs",
-        "/v2/api-docs",
-        "/swagger-ui/index.html"
+            "/oauth/**",
+            "/v3/api-docs",
+            "/v2/api-docs",
+            "/swagger-ui/index.html",
+            "/validate/**"
     };
 
 
