@@ -2,11 +2,8 @@ package cn.com.yangshj.oauth.custom.sms;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
-import java.util.Map;
 import java.util.Objects;
 
-import cn.com.yangshj.oauth.component.CustomUserServiceImpl;
 import cn.com.yangshj.oauth.constant.OAuthConstant;
 import lombok.Setter;
 import org.springframework.security.authentication.AuthenticationProvider;
