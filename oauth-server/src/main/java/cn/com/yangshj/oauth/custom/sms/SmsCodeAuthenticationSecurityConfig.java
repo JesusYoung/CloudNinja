@@ -3,6 +3,7 @@ package cn.com.yangshj.oauth.custom.sms;
 import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,6 +24,8 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
     private SmsUserDetailsServiceImpl smsUserDetailsService;
     @Resource
     private SmsCodeAuthenticationSuccessHandler smsCodeAuthenticationSuccessHandler;
+    @Resource
+    private RedisTemplate<String, String> redisTemplate;
 
     @Override
     public void configure(HttpSecurity builder) throws Exception {
@@ -35,6 +38,7 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
         // 设置UserDetailsService
         SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = new SmsCodeAuthenticationProvider();
         smsCodeAuthenticationProvider.setSmsUserDetailsService(smsUserDetailsService);
+        smsCodeAuthenticationProvider.setRedisTemplate(redisTemplate);
         // 这里说明要把自己写的Provider放在过滤链的哪里
         builder.authenticationProvider(smsCodeAuthenticationProvider)
                 .addFilterAfter(smsCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
