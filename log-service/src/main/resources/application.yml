@@ -1,0 +1,30 @@
+server:
+  port: 8400
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7900/eureka/
+
+spring:
+  #  profiles:
+  #    active: @profileActive@
+  application:
+    name: rbac-service
+  jackson:
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://localhost:3306/cloud_ninja_log?useUnicode=true&characterEncoding=utf-8&useSSL=false&useInformationSchema=true&remarks=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      logic-delete-field: isDeleted # # 全局逻辑删除的实体字段名
+#      logic-delete-value: 1 # 逻辑已删除
+#      logic-not-delete-value: 0 # 逻辑未删除

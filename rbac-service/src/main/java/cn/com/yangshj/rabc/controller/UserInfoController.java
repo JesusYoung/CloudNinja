@@ -1,6 +1,7 @@
 package cn.com.yangshj.rabc.controller;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import cn.com.yangshj.base.entity.AuthUser;
 import cn.com.yangshj.base.entity.CommonResult;
@@ -38,7 +39,7 @@ public class UserInfoController {
 
     @ApiOperation("新增用户")
     @PostMapping
-    public CommonResult<UserInfoDto> add(@RequestBody UserInfoVo userVo) {
+    public CommonResult<UserInfoDto> add(@RequestBody @Valid UserInfoVo userVo) {
         return CommonResult.success(this.userInfoService.add(userVo));
     }
 

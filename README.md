@@ -5,6 +5,7 @@ TestDemo
 - eureka-server: 7900
 - rbac-service: 8100
 - oauth-server: 8300
+- log-service: 8400
   
 - api-server: 7500
 - base-server: 7700

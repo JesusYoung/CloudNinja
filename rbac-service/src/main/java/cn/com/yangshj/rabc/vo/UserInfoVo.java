@@ -1,9 +1,12 @@
 package cn.com.yangshj.rabc.vo;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.ToString;
 import net.bytebuddy.build.ToStringPlugin;
 
 /**
@@ -13,12 +16,14 @@ import net.bytebuddy.build.ToStringPlugin;
  * @since 2023/3/27 15:54
  */
 @Data
-@ToStringPlugin.Enhance
+@ToString
 public class UserInfoVo {
 
+    @NotBlank(message = "用户名不能为空")
     @ApiModelProperty("用户名")
     private String name;
 
+    @NotNull(message = "邮箱不能为空")
     @ApiModelProperty("邮箱")
     private String email;
 

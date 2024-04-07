@@ -48,7 +48,7 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         userInfo.setPassword(passwordEncoder.encode(vo.getPassword()));
         userInfo.setStatus(1);
         userInfo.setCreateTime(new Date().getTime());
-        save(userInfo);
+//        save(userInfo);
         return this.convertToDto(userInfo);
     }
 
